@@ -19,7 +19,6 @@ export type RegisterInput = {
 export const authClient = createAuthClient({
   // Leave undefined if the app and the auth API are on the same domain.
   baseURL: process.env.NEXT_PUBLIC_BETTER_AUTH_URL,
-  // Lets signUp.email accept the custom "role" field (see server step below).
   plugins: [inferAdditionalFields({ user: { role: { type: "string" } } })],
 })
 
@@ -27,14 +26,17 @@ export const { signIn, signUp, signOut, useSession } = authClient
 
 const GENERIC_ERROR = "Something went wrong. Please try again."
 
+// /dashboard looks up the user's role and forwards to the right dashboard.
+const AFTER_AUTH = "/dashboard"
+
 export async function login({ email, password, remember }: LoginInput) {
   const { error } = await authClient.signIn.email({
     email,
     password,
     rememberMe: remember,
-    callbackURL: "/dashboard",
   })
   if (error) throw new Error(error.message ?? GENERIC_ERROR)
+  window.location.assign(AFTER_AUTH)
 }
 
 export async function register({ role, name, email, password }: RegisterInput) {
@@ -43,15 +45,15 @@ export async function register({ role, name, email, password }: RegisterInput) {
     email,
     password,
     role,
-    callbackURL: `/dashboard/${role}`,
   })
   if (error) throw new Error(error.message ?? GENERIC_ERROR)
+  window.location.assign(AFTER_AUTH)
 }
 
 export async function startGoogleSignIn() {
   const { error } = await authClient.signIn.social({
     provider: "google",
-    callbackURL: "/dashboard",
+    callbackURL: AFTER_AUTH,
   })
   if (error) throw new Error(error.message ?? GENERIC_ERROR)
 }
