@@ -10,66 +10,11 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { FadeIn, Stagger, StaggerItem } from "@/components/site/motion"
 import { SectionHeading } from "@/components/site/section-heading"
+import { getFeaturedJobs } from "@/lib/data/jobs"
+import { formatSalary } from "@/lib/format"
 
-// Hand-picked listings. Swap for real data once the jobs API exists.
-const jobs = [
-  {
-    id: "frontend-developer",
-    title: "Frontend Developer",
-    description:
-      "Build fast, accessible interfaces for a product used by millions of job seekers every month.",
-    location: "New York, USA",
-    schedule: "Hybrid",
-    salary: "€25–€40/hour",
-  },
-  {
-    id: "product-designer",
-    title: "Product Designer",
-    description:
-      "Own the end-to-end design of hiring workflows, from first sketch to shipped experience.",
-    location: "Berlin, Germany",
-    schedule: "Remote",
-    salary: "€70–€95k/year",
-  },
-  {
-    id: "backend-engineer",
-    title: "Backend Engineer",
-    description:
-      "Design reliable APIs and data pipelines that match candidates with the right roles in real time.",
-    location: "London, UK",
-    schedule: "Hybrid",
-    salary: "£65–£90k/year",
-  },
-  {
-    id: "data-analyst",
-    title: "Data Analyst",
-    description:
-      "Turn hiring data into salary insights and market trends that candidates and recruiters rely on.",
-    location: "Toronto, Canada",
-    schedule: "Full-time",
-    salary: "$80–$105k/year",
-  },
-  {
-    id: "devops-engineer",
-    title: "DevOps Engineer",
-    description:
-      "Keep deployments boring: automate infrastructure, monitoring and releases across the platform.",
-    location: "Dhaka, Bangladesh",
-    schedule: "Remote",
-    salary: "$30–$50/hour",
-  },
-  {
-    id: "ai-engineer",
-    title: "AI Engineer",
-    description:
-      "Improve skill-based matching with ranking models and evaluation tooling built for hiring.",
-    location: "San Francisco, USA",
-    schedule: "Hybrid",
-    salary: "$140–$190k/year",
-  },
-]
-
-export function FeaturedJobs() {
+export async function FeaturedJobs() {
+  const jobs = await getFeaturedJobs()
   return (
     <section id="jobs" aria-label="Featured jobs" className="bg-background">
       <div className="mx-auto max-w-[1440px] px-4 py-16 sm:px-8 sm:py-24 lg:py-[120px] xl:px-[60px]">
@@ -90,7 +35,7 @@ export function FeaturedJobs() {
                       {job.title}
                     </h3>
                     <p className="text-base leading-normal text-white/70">
-                      {job.description}
+                      {job.summary}
                     </p>
                   </div>
                   <ul className="flex flex-wrap gap-2">
@@ -103,13 +48,13 @@ export function FeaturedJobs() {
                     <li>
                       <Badge variant="chip">
                         <BriefcaseBusiness aria-hidden />
-                        {job.schedule}
+                        {job.type}
                       </Badge>
                     </li>
                     <li>
                       <Badge variant="chip">
                         <CircleDollarSign aria-hidden />
-                        {job.salary}
+                        {formatSalary(job.salaryMin, job.salaryMax)}
                       </Badge>
                     </li>
                   </ul>

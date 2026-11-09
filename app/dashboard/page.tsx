@@ -1,18 +1,9 @@
-import { headers } from "next/headers"
 import { redirect } from "next/navigation"
 
-import { auth } from "@/lib/auth"
+import { dashboardHome, requireUser } from "@/lib/session"
 
-const HOME = {
-  seeker: "/dashboard/seeker",
-  recruiter: "/dashboard/recruiter",
-  admin: "/dashboard/admin",
-} as const
-
+/** Entry point after sign-in: forward to the dashboard that matches the role. */
 export default async function DashboardRedirect() {
-  const session = await auth.api.getSession({ headers: await headers() })
-  if (!session) redirect("/login")
-
-  const role = (session.user as { role?: string }).role
-  redirect(role && role in HOME ? HOME[role as keyof typeof HOME] : HOME.seeker)
+  const user = await requireUser()
+  redirect(dashboardHome(user.role))
 }
