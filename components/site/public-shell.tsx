@@ -6,10 +6,10 @@ export function PublicShell({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Navbar />
-      <main className="relative pt-[120px] sm:pt-[140px]">
+      <main className="relative pt-[7.5rem] sm:pt-[8.75rem]">
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[420px] bg-[radial-gradient(ellipse_60%_70%_at_50%_0%,rgb(92_83_254/0.22),transparent)]"
+          className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[26.25rem] bg-[radial-gradient(ellipse_60%_70%_at_50%_0%,rgb(92_83_254/0.22),transparent)]"
         />
         {children}
       </main>
@@ -30,7 +30,7 @@ export function PageHeading({
   text?: string
 }) {
   return (
-    <div className="mx-auto flex max-w-[640px] flex-col items-center gap-4 text-center">
+    <div className="mx-auto flex max-w-[40rem] flex-col items-center gap-4 text-center">
       <p className="flex items-center gap-4 font-mono-label text-base text-white sm:text-xl">
         <span aria-hidden className="size-2 bg-brand" />
         {eyebrow}

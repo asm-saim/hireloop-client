@@ -63,7 +63,7 @@ export function Pricing() {
     <section
       id="pricing"
       aria-label="Pricing"
-      className="mx-auto max-w-[1440px] px-4 py-16 sm:px-8 sm:py-24 lg:py-[120px] xl:px-[60px]"
+      className="mx-auto max-w-[90rem] px-4 py-16 sm:px-8 sm:py-24 lg:py-[7.5rem] xl:px-[3.75rem]"
     >
       <FadeIn>
         <SectionHeading
@@ -72,7 +72,7 @@ export function Pricing() {
         />
       </FadeIn>
 
-      <div className="mx-auto mt-12 flex max-w-[1320px] flex-col items-center gap-6 sm:mt-16">
+      <div className="mx-auto mt-12 flex max-w-[82.5rem] flex-col items-center gap-6 sm:mt-16">
         {/* Billing toggle */}
         <div
           role="group"
@@ -84,7 +84,7 @@ export function Pricing() {
             aria-pressed={!yearly}
             onClick={() => setYearly(false)}
             className={cn(
-              "h-[43px] rounded-full px-4 font-tight text-lg font-medium tracking-[-0.02em] transition-colors outline-none focus-visible:ring-3 focus-visible:ring-ring/50",
+              "h-[2.6875rem] rounded-full px-4 font-tight text-lg font-medium tracking-[-0.02em] transition-colors outline-none focus-visible:ring-3 focus-visible:ring-ring/50",
               !yearly ? "bg-white text-ink" : "text-white hover:bg-white/10"
             )}
           >
@@ -95,7 +95,7 @@ export function Pricing() {
             aria-pressed={yearly}
             onClick={() => setYearly(true)}
             className={cn(
-              "flex h-[43px] items-center gap-2 rounded-full px-4 font-tight text-lg font-medium tracking-[-0.02em] transition-colors outline-none focus-visible:ring-3 focus-visible:ring-ring/50",
+              "flex h-[2.6875rem] items-center gap-2 rounded-full px-4 font-tight text-lg font-medium tracking-[-0.02em] transition-colors outline-none focus-visible:ring-3 focus-visible:ring-ring/50",
               yearly ? "bg-white text-ink" : "text-white hover:bg-white/10"
             )}
           >
@@ -115,7 +115,7 @@ export function Pricing() {
                   className={cn(
                     "flex h-full flex-col justify-between gap-12 rounded-3xl border p-6",
                     plan.featured
-                      ? "border-white/20 bg-surface shadow-[inset_0_0_32px_rgb(120_120_120/0.25)]"
+                      ? "border-white/20 bg-surface shadow-[inset_0_0_2rem_rgb(120_120_120/0.25)]"
                       : "border-[#f6efe1]/20 bg-ink"
                   )}
                 >
@@ -130,7 +130,7 @@ export function Pricing() {
                         </h3>
                       </div>
                       <p className="flex items-end gap-1 text-white">
-                        <span className="font-jakarta text-4xl leading-[1.2] font-semibold tracking-[-0.05em] sm:text-[40px]">
+                        <span className="font-jakarta text-4xl leading-[1.2] font-semibold tracking-[-0.05em] sm:text-[2.5rem]">
                           ${price(plan.monthly)}
                         </span>
                         <span className="pb-1.5 font-tight text-sm text-white/80">
@@ -165,7 +165,7 @@ export function Pricing() {
                     variant={plan.featured ? "light" : "secondary"}
                     render={<Link href="/register" />}
                     nativeButton={false}
-                    className="h-[55px] w-full justify-between px-6 text-base tracking-[-0.02em]"
+                    className="h-[3.4375rem] w-full justify-between px-6 text-base tracking-[-0.02em]"
                   >
                     Choose This Plan
                     <ArrowRight aria-hidden className="size-6" />

@@ -9,7 +9,7 @@ export default async function DashboardOverview() {
   const links = roleNav[user.role].filter((l) => !l.href.endsWith(user.role))
 
   return (
-    <div className="mx-auto flex max-w-[1100px] flex-col gap-8">
+    <div className="mx-auto flex max-w-[68.75rem] flex-col gap-8">
       <header className="flex flex-col gap-2">
         <p className="font-mono-label text-sm text-brand">
           {roleLabel[user.role]}

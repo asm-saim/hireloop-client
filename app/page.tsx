@@ -22,16 +22,16 @@ export default function HomePage() {
       {/* Backdrop: spans navbar + hero */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[100svh] max-h-[960px] min-h-[700px] overflow-hidden [mask-image:linear-gradient(to_bottom,#000_85%,transparent)]"
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[100svh] max-h-[60rem] min-h-[43.75rem] overflow-hidden [mask-image:linear-gradient(to_bottom,#000_85%,transparent)]"
       >
         {/* grey top/edges, black arch rising from the bottom center */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_85%_100%_at_50%_100%,#000_40%,#303032_100%)]" />
 
         {/* subtle light lift along the top */}
-        <div className="absolute inset-x-0 top-0 h-[300px] bg-[radial-gradient(ellipse_60%_100%_at_50%_0%,rgb(255_255_255/0.04),transparent)]" />
+        <div className="absolute inset-x-0 top-0 h-[18.75rem] bg-[radial-gradient(ellipse_60%_100%_at_50%_0%,rgb(255_255_255/0.04),transparent)]" />
 
         {/* purple glow at the bottom */}
-        <div className="absolute bottom-[-12%] left-1/2 h-64 w-[60%] -translate-x-1/2 rounded-full bg-[#6351ff]/50 blur-[120px]" />
+        <div className="absolute bottom-[-12%] left-1/2 h-64 w-[60%] -translate-x-1/2 rounded-full bg-[#6351ff]/50 blur-[7.5rem]" />
 
         {/* tiny particles */}
         <div className="absolute inset-0" style={{ backgroundImage: particles }} />

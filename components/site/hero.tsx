@@ -21,8 +21,8 @@ function BriefcaseEmoji() {
 
 export function Hero() {
   return (
-    <div className="relative z-10 mx-auto flex max-w-[1320px] flex-col items-center px-4 pt-[150px] sm:px-8 sm:pt-[190px] lg:pt-[180px] xl:px-[60px]">
-      <div className="flex w-full max-w-[784px] flex-col items-center gap-8 text-center sm:gap-12">
+    <div className="relative z-10 mx-auto flex max-w-[82.5rem] flex-col items-center px-4 pt-[9.375rem] sm:px-8 sm:pt-[11.875rem] lg:pt-[11.25rem] xl:px-[3.75rem]">
+      <div className="flex w-full max-w-[49rem] flex-col items-center gap-8 text-center sm:gap-12">
         <div className="flex w-full flex-col items-center gap-8">
           {/* Announcement pill */}
           <div className="flex items-center justify-center gap-0">
@@ -30,7 +30,7 @@ export function Hero() {
               aria-hidden
               className="hidden h-px w-10 bg-gradient-to-r from-transparent to-white/70 sm:block sm:w-16"
             />
-            <p className="flex items-center gap-3 rounded-full border border-white/10 bg-gradient-to-b from-[#474747] to-[#010102] px-4 py-2 font-mono-label text-sm text-white shadow-[inset_0_0_6px_rgb(0_0_0/0.1)] sm:gap-4 sm:px-6 sm:py-3 sm:text-xl">
+            <p className="flex items-center gap-3 rounded-full border border-white/10 bg-gradient-to-b from-[#474747] to-[#010102] px-4 py-2 font-mono-label text-sm text-white shadow-[inset_0_0_0.375rem_rgb(0_0_0/0.1)] sm:gap-4 sm:px-6 sm:py-3 sm:text-xl">
               <BriefcaseEmoji />
               50,000+ new jobs this month
             </p>
@@ -41,10 +41,10 @@ export function Hero() {
           </div>
 
           <div className="flex flex-col items-center gap-4">
-            <h1 className="text-4xl leading-[1.15] font-bold tracking-[-0.036em] text-balance text-white sm:text-5xl lg:text-[56px]">
+            <h1 className="text-4xl leading-[1.15] font-bold tracking-[-0.036em] text-balance text-white sm:text-5xl lg:text-[3.5rem]">
               Find Your Dream Job Today
             </h1>
-            <p className="max-w-[784px] text-base leading-[1.6] text-pretty text-white sm:text-xl">
+            <p className="max-w-[49rem] text-base leading-[1.6] text-pretty text-white sm:text-xl">
               HireLoop connects top talent with world-class companies. Browse
               thousands of curated opportunities and land your next role —
               faster.

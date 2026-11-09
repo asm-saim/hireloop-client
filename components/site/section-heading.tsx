@@ -13,7 +13,7 @@ export function SectionHeading({
   return (
     <div
       className={cn(
-        "mx-auto flex max-w-[520px] flex-col items-center gap-4 text-center",
+        "mx-auto flex max-w-[32.5rem] flex-col items-center gap-4 text-center",
         className
       )}
     >

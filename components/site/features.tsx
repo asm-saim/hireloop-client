@@ -62,7 +62,7 @@ export function Features() {
       aria-label="Platform features"
       className="bg-surface"
     >
-      <div className="mx-auto max-w-[1440px] px-4 py-16 sm:px-8 sm:py-24 lg:py-[120px] xl:px-[60px]">
+      <div className="mx-auto max-w-[90rem] px-4 py-16 sm:px-8 sm:py-24 lg:py-[7.5rem] xl:px-[3.75rem]">
         <FadeIn>
           <SectionHeading
             eyebrow="features job"
@@ -70,7 +70,7 @@ export function Features() {
           />
         </FadeIn>
 
-        <Stagger className="mx-auto mt-12 grid max-w-[1320px] gap-x-6 gap-y-10 sm:mt-16 sm:grid-cols-2 lg:grid-cols-4 lg:gap-y-12">
+        <Stagger className="mx-auto mt-12 grid max-w-[82.5rem] gap-x-6 gap-y-10 sm:mt-16 sm:grid-cols-2 lg:grid-cols-4 lg:gap-y-12">
           {features.map(({ icon: Icon, title, text }) => (
             <StaggerItem
               key={title}

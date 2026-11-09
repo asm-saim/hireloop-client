@@ -32,7 +32,7 @@ export default async function CompaniesPage({
 
   return (
     <PublicShell>
-      <div className="mx-auto max-w-[1440px] px-4 sm:px-8 xl:px-[60px]">
+      <div className="mx-auto max-w-[90rem] px-4 sm:px-8 xl:px-[3.75rem]">
         <PageHeading
           eyebrow="Companies"
           title="Teams worth working for"
@@ -41,7 +41,7 @@ export default async function CompaniesPage({
 
         <nav
           aria-label="Filter by industry"
-          className="mx-auto mt-10 flex max-w-[1320px] flex-wrap justify-center gap-2 sm:mt-14"
+          className="mx-auto mt-10 flex max-w-[82.5rem] flex-wrap justify-center gap-2 sm:mt-14"
         >
           {tabs.map((t) => {
             const active = t.value === industry
@@ -67,7 +67,7 @@ export default async function CompaniesPage({
           })}
         </nav>
 
-        <ul className="mx-auto mt-10 grid max-w-[1320px] gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+        <ul className="mx-auto mt-10 grid max-w-[82.5rem] gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
           {companies.map((c) => (
             <li key={c.id}>
               <article className="relative flex h-full flex-col gap-5 rounded-3xl border border-white/[0.07] bg-surface p-6 transition-colors focus-within:border-brand/60 hover:border-white/20">

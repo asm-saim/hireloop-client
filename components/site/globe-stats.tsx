@@ -21,7 +21,7 @@ function Globe() {
     <svg
       viewBox="0 0 1236 1037"
       aria-hidden
-      className="pointer-events-none absolute top-0 left-1/2 -z-10 h-auto w-[210vw] max-w-none -translate-x-1/2 overflow-visible sm:w-[150vw] lg:w-[1236px]"
+      className="pointer-events-none absolute top-0 left-1/2 -z-10 h-auto w-[210vw] max-w-none -translate-x-1/2 overflow-visible sm:w-[150vw] lg:w-[77.25rem]"
     >
       <defs>
         <filter
@@ -92,28 +92,28 @@ export function GlobeStats() {
   return (
     <section
       aria-labelledby="stats-heading"
-      className="relative mt-20 sm:mt-28 lg:mt-[152px]"
+      className="relative mt-20 sm:mt-28 lg:mt-[9.5rem]"
     >
       <Globe />
-      <div className="relative z-10 mx-auto flex max-w-[1440px] flex-col items-center gap-10 px-4 pt-36 pb-16 sm:gap-12 sm:px-8 sm:pt-56 lg:pt-[276px] lg:pb-[72px] xl:px-[60px]">
+      <div className="relative z-10 mx-auto flex max-w-[90rem] flex-col items-center gap-10 px-4 pt-36 pb-16 sm:gap-12 sm:px-8 sm:pt-56 lg:pt-[17.25rem] lg:pb-[4.5rem] xl:px-[3.75rem]">
         <FadeIn>
           <h2
             id="stats-heading"
-            className="mx-auto max-w-[600px] text-center text-2xl leading-[1.3] font-medium tracking-[-0.025em] text-balance text-white/70 sm:text-3xl lg:text-[40px]"
+            className="mx-auto max-w-[37.5rem] text-center text-2xl leading-[1.3] font-medium tracking-[-0.025em] text-balance text-white/70 sm:text-3xl lg:text-[2.5rem]"
           >
             Assisting over 15,000 job seekers find their dream positions.
           </h2>
         </FadeIn>
 
-        <dl className="grid w-full max-w-[1320px] grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-4">
+        <dl className="grid w-full max-w-[82.5rem] grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-4">
           {stats.map(({ icon: Icon, value, suffix, label }) => (
             <div
               key={label}
-              className="flex min-h-[176px] flex-col justify-between rounded-2xl border border-white/10 bg-gradient-to-b from-[#010102] to-[#313131] p-4 sm:min-h-[254px] sm:p-6"
+              className="flex min-h-[11rem] flex-col justify-between rounded-2xl border border-white/10 bg-gradient-to-b from-[#010102] to-[#313131] p-4 sm:min-h-[15.875rem] sm:p-6"
             >
               <Icon aria-hidden className="size-6 text-white" />
               <div className="flex flex-col gap-2 sm:gap-4">
-                <dd className="order-1 font-jakarta text-4xl leading-[1.15] font-semibold tracking-[-0.036em] text-white sm:text-5xl lg:text-[56px]">
+                <dd className="order-1 font-jakarta text-4xl leading-[1.15] font-semibold tracking-[-0.036em] text-white sm:text-5xl lg:text-[3.5rem]">
                   <CountUp value={value} suffix={suffix} />
                 </dd>
                 <dt className="order-2 font-tight text-base text-white sm:text-lg">

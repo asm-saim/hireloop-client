@@ -58,8 +58,8 @@ export default async function JobDetailsPage({ params }: Props) {
 
   return (
     <PublicShell>
-      <div className="mx-auto max-w-[1440px] px-4 sm:px-8 xl:px-[60px]">
-        <div className="mx-auto max-w-[1320px]">
+      <div className="mx-auto max-w-[90rem] px-4 sm:px-8 xl:px-[3.75rem]">
+        <div className="mx-auto max-w-[82.5rem]">
           <Link
             href="/jobs"
             className="mb-8 inline-flex items-center gap-2 rounded-lg text-sm text-white/80 transition-colors outline-none hover:text-white focus-visible:ring-3 focus-visible:ring-ring/50"
@@ -68,7 +68,7 @@ export default async function JobDetailsPage({ params }: Props) {
             All jobs
           </Link>
 
-          <div className="grid gap-10 lg:grid-cols-[1fr_360px]">
+          <div className="grid gap-10 lg:grid-cols-[1fr_22.5rem]">
             <article className="flex flex-col gap-10">
               <header className="flex flex-col gap-5">
                 <div className="flex flex-wrap items-center gap-2">

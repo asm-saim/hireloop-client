@@ -28,8 +28,8 @@ export default async function CompanyPage({ params }: Props) {
 
   return (
     <PublicShell>
-      <div className="mx-auto max-w-[1440px] px-4 sm:px-8 xl:px-[60px]">
-        <div className="mx-auto max-w-[1320px]">
+      <div className="mx-auto max-w-[90rem] px-4 sm:px-8 xl:px-[3.75rem]">
+        <div className="mx-auto max-w-[82.5rem]">
           <Link
             href="/companies"
             className="mb-8 inline-flex items-center gap-2 rounded-lg text-sm text-white/80 transition-colors outline-none hover:text-white focus-visible:ring-3 focus-visible:ring-ring/50"

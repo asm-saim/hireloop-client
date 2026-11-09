@@ -157,7 +157,7 @@ export function DashboardShell({
   }, [open])
 
   return (
-    <div className="min-h-svh lg:grid lg:grid-cols-[288px_1fr]">
+    <div className="min-h-svh lg:grid lg:grid-cols-[18rem_1fr]">
       {/* Desktop sidebar */}
       <aside className="sticky top-0 hidden h-svh border-r border-white/10 bg-ink lg:block">
         <SidebarContent user={user} onNavigate={() => {}} />
@@ -200,7 +200,7 @@ export function DashboardShell({
         <aside
           id="dashboard-drawer"
           className={cn(
-            "absolute inset-y-0 left-0 w-[288px] max-w-[85vw] border-r border-white/10 bg-ink transition-transform duration-200",
+            "absolute inset-y-0 left-0 w-[18rem] max-w-[85vw] border-r border-white/10 bg-ink transition-transform duration-200",
             open ? "translate-x-0" : "-translate-x-full"
           )}
         >

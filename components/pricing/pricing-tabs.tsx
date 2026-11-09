@@ -21,7 +21,7 @@ function PlanCard({ plan }: { plan: Plan }) {
       className={cn(
         "flex h-full flex-col justify-between gap-10 rounded-3xl border p-6",
         plan.featured
-          ? "border-white/20 bg-surface shadow-[inset_0_0_32px_rgb(120_120_120/0.25)]"
+          ? "border-white/20 bg-surface shadow-[inset_0_0_2rem_rgb(120_120_120/0.25)]"
           : "border-[#f6efe1]/20 bg-ink"
       )}
     >
@@ -59,7 +59,7 @@ function PlanCard({ plan }: { plan: Plan }) {
         variant={plan.featured ? "light" : "secondary"}
         render={<Link href="/register" />}
         nativeButton={false}
-        className="h-[55px] w-full justify-between px-6 text-base"
+        className="h-[3.4375rem] w-full justify-between px-6 text-base"
       >
         {plan.price === 0 ? "Get started free" : "Choose this plan"}
         <ArrowRight aria-hidden className="size-6" />
@@ -86,7 +86,7 @@ export function PricingTabs() {
             aria-pressed={audience === t.id}
             onClick={() => setAudience(t.id)}
             className={cn(
-              "h-[43px] rounded-full px-4 font-tight text-base font-medium tracking-[-0.02em] transition-colors outline-none focus-visible:ring-3 focus-visible:ring-ring/50 sm:px-6 sm:text-lg",
+              "h-[2.6875rem] rounded-full px-4 font-tight text-base font-medium tracking-[-0.02em] transition-colors outline-none focus-visible:ring-3 focus-visible:ring-ring/50 sm:px-6 sm:text-lg",
               audience === t.id
                 ? "bg-white text-ink"
                 : "text-white hover:bg-white/10"

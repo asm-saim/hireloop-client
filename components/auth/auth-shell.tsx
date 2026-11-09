@@ -35,12 +35,12 @@ export function AuthShell({ children }: { children: React.ReactNode }) {
 
         <Logo className="relative" />
 
-        <div className="relative flex max-w-[520px] flex-col gap-8">
+        <div className="relative flex max-w-[32.5rem] flex-col gap-8">
           <p className="flex items-center gap-4 font-mono-label text-base text-white">
             <span aria-hidden className="size-2 bg-brand" />
             50,000+ new jobs this month
           </p>
-          <h2 className="font-rethink text-5xl leading-[1.15] font-medium tracking-[-0.023em] text-balance text-white xl:text-[56px]">
+          <h2 className="font-rethink text-5xl leading-[1.15] font-medium tracking-[-0.023em] text-balance text-white xl:text-[3.5rem]">
             Your next role is already looking for you
           </h2>
           <p className="text-lg leading-[1.6] text-white/80">
@@ -67,7 +67,7 @@ export function AuthShell({ children }: { children: React.ReactNode }) {
       <div className="relative flex min-h-svh flex-col overflow-hidden">
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-x-0 top-0 h-[420px] lg:hidden"
+          className="pointer-events-none absolute inset-x-0 top-0 h-[26.25rem] lg:hidden"
           style={{
             background:
               "radial-gradient(ellipse 80% 70% at 50% 0%, rgb(92 83 254 / 0.35), transparent 70%)",
@@ -85,7 +85,7 @@ export function AuthShell({ children }: { children: React.ReactNode }) {
         </header>
 
         <main className="relative flex flex-1 items-center justify-center px-4 pt-2 pb-12 sm:px-8">
-          <div className="w-full max-w-[440px]">{children}</div>
+          <div className="w-full max-w-[27.5rem]">{children}</div>
         </main>
       </div>
     </div>

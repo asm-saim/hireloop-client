@@ -16,7 +16,7 @@ export default async function ComingSoon({
     "This page"
 
   return (
-    <div className="mx-auto flex max-w-[640px] flex-col items-center gap-4 rounded-3xl border border-dashed border-white/20 px-6 py-20 text-center">
+    <div className="mx-auto flex max-w-[40rem] flex-col items-center gap-4 rounded-3xl border border-dashed border-white/20 px-6 py-20 text-center">
       <Hammer aria-hidden className="size-8 text-white/60" />
       <h1 className="text-2xl font-semibold text-white">
         {title} is coming soon

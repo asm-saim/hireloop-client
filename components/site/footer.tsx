@@ -79,10 +79,10 @@ export function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="mx-auto w-full max-w-[1440px] px-4 sm:px-8 xl:px-[60px]">
-      <div className="flex flex-col gap-12 rounded-2xl border border-white/[0.07] bg-ink px-6 py-10 sm:px-10 lg:gap-[72px] lg:px-0 lg:py-10">
-        <div className="flex flex-col justify-between gap-12 lg:flex-row lg:gap-24 lg:px-10 xl:gap-[400px]">
-          <div className="flex max-w-[288px] flex-col gap-6">
+    <footer className="mx-auto w-full max-w-[90rem] px-4 sm:px-8 xl:px-[3.75rem]">
+      <div className="flex flex-col gap-12 rounded-2xl border border-white/[0.07] bg-ink px-6 py-10 sm:px-10 lg:gap-[4.5rem] lg:px-0 lg:py-10">
+        <div className="flex flex-col justify-between gap-12 lg:flex-row lg:gap-24 lg:px-10 xl:gap-[25rem]">
+          <div className="flex max-w-[18rem] flex-col gap-6">
             <Logo />
             <p className="text-base leading-[1.9] text-white">
               The AI-native career platform. Built for people who take their
@@ -92,12 +92,12 @@ export function Footer() {
 
           <nav
             aria-label="Footer"
-            className="grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-3 lg:gap-x-[72px]"
+            className="grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-3 lg:gap-x-[4.5rem]"
           >
             {columns.map((col) => (
               <div
                 key={col.title}
-                className="flex min-w-[130px] flex-col gap-6"
+                className="flex min-w-[8.125rem] flex-col gap-6"
               >
                 <h2 className="font-tight text-lg leading-[1.4] font-medium text-brand">
                   {col.title}

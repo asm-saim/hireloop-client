@@ -19,20 +19,20 @@ export const metadata: Metadata = {
 export default function PricingPage() {
   return (
     <PublicShell>
-      <div className="mx-auto max-w-[1440px] px-4 sm:px-8 xl:px-[60px]">
+      <div className="mx-auto max-w-[90rem] px-4 sm:px-8 xl:px-[3.75rem]">
         <PageHeading
           eyebrow="Pricing"
           title="Pay for the leverage, not the listings"
           text="Start free. Upgrade when you need more applications or more job posts."
         />
 
-        <div className="mx-auto mt-10 max-w-[1320px] sm:mt-14">
+        <div className="mx-auto mt-10 max-w-[82.5rem] sm:mt-14">
           <PricingTabs />
         </div>
 
         <section
           aria-labelledby="faq"
-          className="mx-auto mt-24 max-w-[760px] sm:mt-32"
+          className="mx-auto mt-24 max-w-[47.5rem] sm:mt-32"
         >
           <h2
             id="faq"

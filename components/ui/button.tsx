@@ -11,10 +11,10 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-primary text-primary-foreground shadow-[inset_0_3px_10px_rgb(255_255_255/0.2)] hover:bg-primary/90",
+          "bg-primary text-primary-foreground shadow-[inset_0_0.1875rem_0.625rem_rgb(255_255_255/0.2)] hover:bg-primary/90",
         // Solid white button used for primary actions on dark surfaces.
         light:
-          "border-[#090a15]/10 bg-white text-[#0b0b14] shadow-[inset_0_3px_10px_rgb(255_255_255/0.2)] hover:bg-white/90",
+          "border-[#090a15]/10 bg-white text-[#0b0b14] shadow-[inset_0_0.1875rem_0.625rem_rgb(255_255_255/0.2)] hover:bg-white/90",
         outline:
           "border-[#d7d7d7]/30 bg-[#0e0b16] text-foreground hover:bg-white/10",
         secondary: "bg-[#595959]/50 text-foreground hover:bg-[#595959]/70",
@@ -22,9 +22,9 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
       },
       size: {
-        default: "h-[52px] px-6 text-lg",
+        default: "h-[3.25rem] px-6 text-lg",
         sm: "h-10 px-4 text-base",
-        lg: "h-[58px] px-6 text-lg",
+        lg: "h-[3.625rem] px-6 text-lg",
         icon: "size-12 rounded-xl",
       },
     },

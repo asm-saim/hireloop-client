@@ -9,7 +9,7 @@ function Dome() {
     <>
       <div
         aria-hidden
-        className="pointer-events-none absolute top-0 left-1/2 -z-10 aspect-[1498/1037] w-[200vw] max-w-[1498px] -translate-x-1/2 rounded-[50%] sm:w-[160vw]"
+        className="pointer-events-none absolute top-0 left-1/2 -z-10 aspect-[1498/1037] w-[200vw] max-w-[93.625rem] -translate-x-1/2 rounded-[50%] sm:w-[160vw]"
         style={{
           background:
             "radial-gradient(ellipse 43% 43% at 50% 0%, #5c53fe 0%, rgb(92 83 254 / 0.6) 29%, rgb(92 83 254 / 0.5) 52%, rgb(92 83 254 / 0) 100%)",
@@ -20,7 +20,7 @@ function Dome() {
           style={{
             backgroundImage:
               "linear-gradient(rgb(255 255 255 / 0.14) 1px, transparent 1px), linear-gradient(90deg, rgb(255 255 255 / 0.14) 1px, transparent 1px)",
-            backgroundSize: "56px 56px",
+            backgroundSize: "3.5rem 3.5rem",
             maskImage:
               "radial-gradient(ellipse 50% 60% at 50% 0%, black, transparent 80%)",
             WebkitMaskImage:
@@ -31,7 +31,7 @@ function Dome() {
       {/* fade to the page background */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-[171px] bottom-0 -z-10 bg-gradient-to-b from-transparent via-ink/80 to-ink"
+        className="pointer-events-none absolute inset-x-0 top-[10.6875rem] bottom-0 -z-10 bg-gradient-to-b from-transparent via-ink/80 to-ink"
       />
     </>
   )
@@ -41,16 +41,16 @@ export function Cta() {
   return (
     <section aria-labelledby="cta-heading" className="relative">
       <Dome />
-      <FadeIn className="mx-auto flex max-w-[792px] flex-col items-center gap-10 px-4 pt-32 pb-24 text-center sm:gap-12 sm:px-8 sm:pt-40 lg:pt-[153px] lg:pb-[118px]">
+      <FadeIn className="mx-auto flex max-w-[49.5rem] flex-col items-center gap-10 px-4 pt-32 pb-24 text-center sm:gap-12 sm:px-8 sm:pt-40 lg:pt-[9.5625rem] lg:pb-[7.375rem]">
         <div className="flex flex-col items-center gap-4">
           <h2
             id="cta-heading"
-            className="font-rethink text-4xl leading-[1.2] font-medium tracking-[-0.023em] text-balance text-white sm:text-5xl lg:text-[64px]"
+            className="font-rethink text-4xl leading-[1.2] font-medium tracking-[-0.023em] text-balance text-white sm:text-5xl lg:text-[4rem]"
           >
             Your next role is <br className="hidden sm:block" />
             already looking for you
           </h2>
-          <p className="max-w-[792px] text-base leading-[1.6] text-white sm:text-xl">
+          <p className="max-w-[49.5rem] text-base leading-[1.6] text-white sm:text-xl">
             Build a profile in three minutes. The matches start arriving
             tomorrow morning.
           </p>

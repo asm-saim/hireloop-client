@@ -72,7 +72,7 @@ export default async function JobsPage({
 
   return (
     <PublicShell>
-      <div className="mx-auto max-w-[1440px] px-4 sm:px-8 xl:px-[60px]">
+      <div className="mx-auto max-w-[90rem] px-4 sm:px-8 xl:px-[3.75rem]">
         <PageHeading
           eyebrow="Browse jobs"
           title="Find a role that fits"
@@ -82,12 +82,12 @@ export default async function JobsPage({
         <form
           action="/jobs"
           method="get"
-          className="mx-auto mt-10 flex max-w-[1320px] flex-col gap-8 sm:mt-14"
+          className="mx-auto mt-10 flex max-w-[82.5rem] flex-col gap-8 sm:mt-14"
         >
           {/* Keyword search */}
           <div
             role="search"
-            className="mx-auto flex h-16 w-full max-w-[784px] items-center gap-3 rounded-2xl border border-white/20 bg-[#101010] p-2 pl-5"
+            className="mx-auto flex h-16 w-full max-w-[49rem] items-center gap-3 rounded-2xl border border-white/20 bg-[#101010] p-2 pl-5"
           >
             <Search aria-hidden className="size-6 shrink-0 text-white" />
             <label className="h-full flex-1">
@@ -104,7 +104,7 @@ export default async function JobsPage({
             </Button>
           </div>
 
-          <div className="grid gap-8 lg:grid-cols-[280px_1fr]">
+          <div className="grid gap-8 lg:grid-cols-[17.5rem_1fr]">
             {/* Filters */}
             <aside
               aria-label="Filters"
