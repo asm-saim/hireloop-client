@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next"
 import localFont from "next/font/local"
+import { Toaster } from "@/components/ui/sonner"
 
 import "./globals.css"
 
@@ -66,7 +67,10 @@ export default function RootLayout({
 
   return (
     <html lang="en" className={`dark ${fontVars}`}>
-      <body className="min-h-svh overflow-x-clip">{children}</body>
+      <body className="min-h-svh overflow-x-clip">
+        {children}
+        <Toaster />
+      </body>
     </html>
   )
 }

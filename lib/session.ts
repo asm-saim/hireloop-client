@@ -49,3 +49,13 @@ export async function requireUser(): Promise<SessionUser> {
   if (!user) redirect("/login")
   return user
 }
+
+/**
+ * Page guard: signed-out users go to /login, users with another role are sent
+ * to their own dashboard.
+ */
+export async function requireRole(role: DashboardRole): Promise<SessionUser> {
+  const user = await requireUser()
+  if (user.role !== role) redirect(dashboardHome(user.role))
+  return user
+}

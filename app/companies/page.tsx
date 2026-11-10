@@ -4,7 +4,7 @@ import { Building2, MapPin, Users } from "lucide-react"
 
 import { CompanyAvatar } from "@/components/jobs/company-avatar"
 import { PageHeading, PublicShell } from "@/components/site/public-shell"
-import { getCompanies } from "@/lib/data/jobs"
+import { getCompanies } from "@/server/repositories/jobs"
 import { INDUSTRIES, type Industry } from "@/lib/data/types"
 import { cn } from "@/lib/utils"
 

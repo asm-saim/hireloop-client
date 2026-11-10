@@ -7,7 +7,7 @@ import { CompanyAvatar } from "@/components/jobs/company-avatar"
 import { JobCard } from "@/components/jobs/job-card"
 import { PublicShell } from "@/components/site/public-shell"
 import { Badge } from "@/components/ui/badge"
-import { getCompany } from "@/lib/data/jobs"
+import { getCompany } from "@/server/repositories/jobs"
 
 type Props = { params: Promise<{ companyId: string }> }
 

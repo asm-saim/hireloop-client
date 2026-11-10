@@ -11,11 +11,16 @@ import {
 
 import { CompanyAvatar } from "@/components/jobs/company-avatar"
 import { JobCard } from "@/components/jobs/job-card"
+import { ApplyDialog } from "@/components/jobs/apply-dialog"
+import { SaveButton } from "@/components/jobs/save-button"
 import { PublicShell } from "@/components/site/public-shell"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { getJob, getSimilarJobs } from "@/lib/data/jobs"
+import { getJob, getSimilarJobs } from "@/server/repositories/jobs"
 import { formatDate, formatSalary, timeAgo } from "@/lib/format"
+import { getSessionUser } from "@/lib/session"
+import { appliedJobIds } from "@/server/repositories/applications"
+import { savedJobIds } from "@/server/repositories/saved"
 
 type Props = { params: Promise<{ jobId: string }> }
 
@@ -55,6 +60,12 @@ export default async function JobDetailsPage({ params }: Props) {
   const job = await getJob(jobId)
   if (!job) notFound()
   const similar = await getSimilarJobs(job)
+  const user = await getSessionUser()
+  const viewer = !user ? "guest" : user.role === "seeker" ? "seeker" : "other"
+  const [applied, saved] =
+    user?.role === "seeker"
+      ? await Promise.all([appliedJobIds(user.id), savedJobIds(user.id)])
+      : [new Set<string>(), new Set<string>()]
 
   return (
     <PublicShell>
@@ -121,18 +132,28 @@ export default async function JobDetailsPage({ params }: Props) {
                     Apply by {formatDate(job.deadline)}
                   </p>
                 </div>
-                <Button
+                <ApplyDialog
+                  jobId={job.id}
+                  jobTitle={job.title}
+                  companyName={job.company.name}
+                  viewer={viewer}
+                  alreadyApplied={applied.has(job.id)}
                   size="lg"
                   className="w-full"
-                  render={<Link href="/login" />}
-                  nativeButton={false}
-                >
-                  Apply now
-                </Button>
-                <p className="text-sm text-white/60">
-                  You need to sign in to apply. The Free plan includes 3
-                  applications per month.
-                </p>
+                />
+                {viewer === "seeker" && (
+                  <SaveButton
+                    jobId={job.id}
+                    initialSaved={saved.has(job.id)}
+                    className="w-full"
+                  />
+                )}
+                {viewer === "guest" && (
+                  <p className="text-sm text-white/60">
+                    You need to sign in to apply. The Free plan includes 3
+                    applications per month.
+                  </p>
+                )}
               </div>
 
               <div className="flex flex-col gap-4 rounded-3xl border border-white/[0.07] bg-surface p-6">

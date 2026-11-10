@@ -5,31 +5,13 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { LoaderCircle, LogOut, Menu, X } from "lucide-react"
 
+import { UserAvatar } from "@/components/dashboard/avatar"
 import { publicNav, roleLabel, roleNav } from "@/components/dashboard/nav"
 import { Logo } from "@/components/site/logo"
 import { Button } from "@/components/ui/button"
 import { signOut } from "@/lib/auth-client"
-import { initials } from "@/lib/format"
 import type { SessionUser } from "@/lib/session"
 import { cn } from "@/lib/utils"
-
-function Avatar({ user }: { user: SessionUser }) {
-  return user.image ? (
-    // eslint-disable-next-line @next/next/no-img-element -- user avatars can come from any host
-    <img
-      src={user.image}
-      alt=""
-      className="size-11 shrink-0 rounded-full border border-white/10 object-cover"
-    />
-  ) : (
-    <span
-      aria-hidden
-      className="grid size-11 shrink-0 place-items-center rounded-full border border-white/10 bg-gradient-to-br from-brand/80 to-[#1f1b4d] font-jakarta text-sm font-semibold text-white"
-    >
-      {initials(user.name) || "?"}
-    </span>
-  )
-}
 
 function SidebarContent({
   user,
@@ -71,7 +53,7 @@ function SidebarContent({
       <Logo />
 
       <div className="flex items-center gap-3 rounded-2xl border border-white/[0.07] bg-surface p-3">
-        <Avatar user={user} />
+        <UserAvatar name={user.name} image={user.image} />
         <div className="min-w-0">
           <p className="truncate text-sm font-semibold text-white">
             {user.name}

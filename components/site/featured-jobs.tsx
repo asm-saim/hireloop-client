@@ -10,7 +10,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { FadeIn, Stagger, StaggerItem } from "@/components/site/motion"
 import { SectionHeading } from "@/components/site/section-heading"
-import { getFeaturedJobs } from "@/lib/data/jobs"
+import { getFeaturedJobs } from "@/server/repositories/jobs"
 import { formatSalary } from "@/lib/format"
 
 export async function FeaturedJobs() {

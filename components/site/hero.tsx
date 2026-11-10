@@ -21,7 +21,7 @@ function BriefcaseEmoji() {
 
 export function Hero() {
   return (
-    <div className="relative z-10 mx-auto flex max-w-[82.5rem] flex-col items-center px-4 pt-[9.375rem] sm:px-8 sm:pt-[11.875rem] lg:pt-[11.25rem] xl:px-[3.75rem]">
+    <div className="relative z-10 mx-auto flex max-w-[82.5rem] flex-col items-center px-4 pt-[9.375rem] sm:px-8 sm:pt-[11.875rem] lg:pt-[13.25rem] xl:px-[3.75rem]">
       <div className="flex w-full max-w-[49rem] flex-col items-center gap-8 text-center sm:gap-12">
         <div className="flex w-full flex-col items-center gap-8">
           {/* Announcement pill */}

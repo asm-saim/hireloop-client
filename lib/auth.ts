@@ -1,9 +1,10 @@
 import { betterAuth } from "better-auth"
-import { MongoClient } from "mongodb"
 import { mongodbAdapter } from "@better-auth/mongo-adapter"
 
-const client = new MongoClient(process.env.MONGODB_URI as string)
-const db = client.db("hireloop-database")
+import { DB_NAME, mongoClient } from "@/lib/mongo-client"
+
+const client = mongoClient()
+const db = client.db(DB_NAME)
 
 export const auth = betterAuth({
   emailAndPassword: {
@@ -38,5 +39,8 @@ export const auth = betterAuth({
   },
   database: mongodbAdapter(db, {
     client,
+    // Transactions need a replica set (MongoDB Atlas always is one). Against a
+    // plain local mongod, set MONGODB_TRANSACTIONS=false in .env.local.
+    transaction: process.env.MONGODB_TRANSACTIONS !== "false",
   }),
 })
