@@ -15,6 +15,7 @@ export function UserAvatar({
     <img
       src={image}
       alt=""
+      referrerPolicy="no-referrer"
       className={cn(
         "size-11 shrink-0 rounded-full border border-white/10 object-cover",
         className
