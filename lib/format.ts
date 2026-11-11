@@ -1,5 +1,11 @@
-export function formatSalary(min: number, max: number) {
-  const k = (n: number) => `$${Math.round(n / 1000)}k`
+export function formatSalary(min: number, max: number, currency = "USD") {
+  const fmt = new Intl.NumberFormat("en", {
+    style: "currency",
+    currency,
+    notation: "compact",
+    maximumFractionDigits: 0,
+  })
+  const k = (n: number) => fmt.format(n).replace("K", "k")
   return `${k(min)} – ${k(max)} / year`
 }
 

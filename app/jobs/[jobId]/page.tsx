@@ -98,7 +98,7 @@ export default async function JobDetailsPage({ params }: Props) {
                   </li>
                   <li className="flex items-center gap-2">
                     <CircleDollarSign aria-hidden className="size-5" />
-                    {formatSalary(job.salaryMin, job.salaryMax)}
+                    {formatSalary(job.salaryMin, job.salaryMax, job.currency)}
                   </li>
                   <li className="flex items-center gap-2">
                     <BriefcaseBusiness aria-hidden className="size-5" />
@@ -125,7 +125,7 @@ export default async function JobDetailsPage({ params }: Props) {
               <div className="flex flex-col gap-5 rounded-3xl border border-white/[0.07] bg-surface p-6">
                 <div>
                   <p className="font-jakarta text-2xl font-semibold tracking-[-0.03em] text-white">
-                    {formatSalary(job.salaryMin, job.salaryMax)}
+                    {formatSalary(job.salaryMin, job.salaryMax, job.currency)}
                   </p>
                   <p className="mt-1 flex items-center gap-2 text-sm text-white/70">
                     <CalendarClock aria-hidden className="size-4" />
@@ -158,7 +158,10 @@ export default async function JobDetailsPage({ params }: Props) {
 
               <div className="flex flex-col gap-4 rounded-3xl border border-white/[0.07] bg-surface p-6">
                 <div className="flex items-center gap-4">
-                  <CompanyAvatar name={job.company.name} />
+                  <CompanyAvatar
+                    name={job.company.name}
+                    logoUrl={job.company.logoUrl}
+                  />
                   <div>
                     <h2 className="font-tight text-lg font-medium text-white">
                       {job.company.name}

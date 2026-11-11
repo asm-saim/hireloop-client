@@ -19,7 +19,7 @@ export function JobCard({
   return (
     <article className="group relative flex flex-col gap-5 rounded-3xl border border-white/[0.07] bg-surface p-6 transition-colors focus-within:border-brand/60 hover:border-white/20">
       <div className="flex items-start gap-4">
-        <CompanyAvatar name={job.company.name} />
+        <CompanyAvatar name={job.company.name} logoUrl={job.company.logoUrl} />
         <div className="min-w-0">
           <h3 className="font-tight text-xl leading-snug font-medium text-white">
             <Link
@@ -51,7 +51,7 @@ export function JobCard({
         <li>
           <Badge variant="chip">
             <CircleDollarSign aria-hidden />
-            {formatSalary(job.salaryMin, job.salaryMax)}
+            {formatSalary(job.salaryMin, job.salaryMax, job.currency)}
           </Badge>
         </li>
       </ul>

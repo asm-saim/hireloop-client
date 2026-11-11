@@ -40,7 +40,11 @@ export default async function CompanyPage({ params }: Props) {
 
           <header className="flex flex-col gap-6 rounded-3xl border border-white/[0.07] bg-surface p-6 sm:p-8">
             <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
-              <CompanyAvatar name={company.name} className="size-20 text-2xl" />
+              <CompanyAvatar
+                name={company.name}
+                logoUrl={company.logoUrl}
+                className="size-20 text-2xl"
+              />
               <div className="flex flex-col gap-3">
                 <h1 className="text-4xl leading-[1.15] font-bold tracking-[-0.036em] text-white">
                   {company.name}

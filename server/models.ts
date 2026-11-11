@@ -28,6 +28,8 @@ export type CompanyDoc = {
   description: string
   status: CompanyStatus
   ownerId?: string
+  /** Set when a logo is stored in the company_logos collection. */
+  logoVersion?: number
 }
 
 export type JobDoc = {
@@ -40,6 +42,7 @@ export type JobDoc = {
   location: string
   salaryMin: number
   salaryMax: number
+  currency?: string
   summary: string
   description: string
   responsibilities: string[]
@@ -92,4 +95,11 @@ export type PaymentDoc = {
   transactionId: string
   status: "succeeded" | "failed" | "refunded"
   createdAt: Date
+}
+
+export type CompanyLogoDoc = {
+  _id: string // the company id
+  data: import("mongodb").Binary
+  type: string
+  version: number
 }

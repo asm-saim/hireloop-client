@@ -39,12 +39,20 @@ function Button({
   className,
   variant,
   size,
+  render,
+  nativeButton,
   ...props
 }: ButtonPrimitive.Props & VariantProps<typeof buttonVariants>) {
+  // Base UI marks a non-native element as role="button". When we render a link
+  // (render={<Link />}), it must stay a link for assistive technology.
+  const asLink = render !== undefined && nativeButton === false
   return (
     <ButtonPrimitive
       data-slot="button"
       className={cn(buttonVariants({ variant, size, className }))}
+      render={render}
+      nativeButton={nativeButton}
+      {...(asLink ? { role: "link" } : {})}
       {...props}
     />
   )

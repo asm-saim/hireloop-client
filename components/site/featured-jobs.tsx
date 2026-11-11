@@ -54,7 +54,11 @@ export async function FeaturedJobs() {
                     <li>
                       <Badge variant="chip">
                         <CircleDollarSign aria-hidden />
-                        {formatSalary(job.salaryMin, job.salaryMax)}
+                        {formatSalary(
+                          job.salaryMin,
+                          job.salaryMax,
+                          job.currency
+                        )}
                       </Badge>
                     </li>
                   </ul>

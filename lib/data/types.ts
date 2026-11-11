@@ -34,6 +34,7 @@ export type Company = {
   employees: string
   website: string
   description: string
+  logoUrl?: string
 }
 
 export type Job = {
@@ -46,6 +47,7 @@ export type Job = {
   /** Annual salary range, USD. */
   salaryMin: number
   salaryMax: number
+  currency: string
   summary: string
   description: string
   responsibilities: string[]
@@ -57,3 +59,13 @@ export type Job = {
 }
 
 export type JobWithCompany = Job & { company: Company }
+
+export const CURRENCIES = ["USD", "EUR", "GBP", "CAD", "AUD", "BDT"] as const
+export const EMPLOYEE_RANGES = [
+  "1–10",
+  "11–50",
+  "51–200",
+  "201–500",
+  "501–1000",
+  "1000+",
+] as const

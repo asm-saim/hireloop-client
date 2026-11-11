@@ -34,6 +34,7 @@ async function main() {
       { _id: id as never },
       {
         ...rest,
+        currency: "USD",
         benefits: commonBenefits,
         postedAt: new Date(Date.now() - postedDaysAgo * DAY),
         deadline: new Date(Date.now() + deadlineInDays * DAY),

@@ -22,6 +22,9 @@ export function toCompany(d: CompanyDoc): Company {
     employees: d.employees,
     website: d.website,
     description: d.description,
+    logoUrl: d.logoVersion
+      ? `/api/companies/${d._id}/logo?v=${d.logoVersion}`
+      : undefined,
   }
 }
 
@@ -35,6 +38,7 @@ export function toJob(d: JobDoc): Job {
     location: d.location,
     salaryMin: d.salaryMin,
     salaryMax: d.salaryMax,
+    currency: d.currency ?? "USD",
     summary: d.summary,
     description: d.description,
     responsibilities: d.responsibilities,

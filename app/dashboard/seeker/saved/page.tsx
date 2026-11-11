@@ -77,7 +77,11 @@ export default async function SavedJobsPage() {
                   </td>
                   <td className="px-5 py-4 whitespace-nowrap text-white/80">
                     {r.job
-                      ? formatSalary(r.job.salaryMin, r.job.salaryMax)
+                      ? formatSalary(
+                          r.job.salaryMin,
+                          r.job.salaryMax,
+                          r.job.currency
+                        )
                       : "—"}
                   </td>
                   <td

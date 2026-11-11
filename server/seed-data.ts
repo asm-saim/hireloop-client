@@ -112,7 +112,7 @@ export const commonBenefits = [
 
 export type Seed = Omit<
   Job,
-  "postedAt" | "deadline" | "benefits" | "featured"
+  "postedAt" | "deadline" | "benefits" | "featured" | "currency"
 > & {
   postedDaysAgo: number
   deadlineInDays: number

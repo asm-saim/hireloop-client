@@ -225,3 +225,77 @@ export function PasswordForm() {
     </form>
   )
 }
+
+/** Name and photo only, for roles without a seeker-style profile. */
+export function AccountForm({
+  initial,
+}: {
+  initial: { name: string; email: string; image: string }
+}) {
+  const router = useRouter()
+  const [name, setName] = useState(initial.name)
+  const [image, setImage] = useState(initial.image)
+  const [errors, setErrors] = useState<{ name?: string; image?: string }>({})
+  const [pending, startTransition] = useTransition()
+
+  function submit(e: React.FormEvent) {
+    e.preventDefault()
+    const next: typeof errors = {}
+    if (!name.trim()) next.name = "Enter your name."
+    if (!isHttpUrl(image.trim()))
+      next.image = "Photo link must start with http:// or https://"
+    setErrors(next)
+    if (Object.keys(next).length) return
+
+    startTransition(async () => {
+      const { error } = await authClient.updateUser({
+        name: name.trim(),
+        image: image.trim() || null,
+      })
+      if (error) {
+        toast.error(error.message ?? "Couldn't update your account.")
+        return
+      }
+      toast.success("Account updated")
+      router.refresh()
+    })
+  }
+
+  return (
+    <form onSubmit={submit} noValidate className={card}>
+      <h2 className="text-xl font-semibold text-white">Personal info</h2>
+      <Field
+        label="Full name"
+        name="name"
+        icon={User}
+        value={name}
+        onChange={setName}
+        error={errors.name}
+        autoComplete="name"
+      />
+      <div className="flex flex-col gap-2">
+        <Label>Email</Label>
+        <div className="flex h-14 items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.03] px-4 text-white/60">
+          <Mail aria-hidden className="size-5 shrink-0" />
+          {initial.email}
+        </div>
+        <p className="text-sm text-white/60">
+          Your email is your sign-in and can&apos;t be changed here.
+        </p>
+      </div>
+      <Field
+        label="Photo link"
+        name="image"
+        icon={ImageIcon}
+        placeholder="https://…/photo.jpg"
+        value={image}
+        onChange={setImage}
+        error={errors.image}
+      />
+      <Button type="submit" disabled={pending} className="w-fit">
+        {pending && <LoaderCircle aria-hidden className="animate-spin" />}
+        {pending ? "Saving…" : "Save changes"}
+      </Button>
+    </form>
+  )
+}

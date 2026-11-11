@@ -72,7 +72,7 @@ export default async function CompaniesPage({
             <li key={c.id}>
               <article className="relative flex h-full flex-col gap-5 rounded-3xl border border-white/[0.07] bg-surface p-6 transition-colors focus-within:border-brand/60 hover:border-white/20">
                 <div className="flex items-center gap-4">
-                  <CompanyAvatar name={c.name} />
+                  <CompanyAvatar name={c.name} logoUrl={c.logoUrl} />
                   <div className="min-w-0">
                     <h2 className="font-tight text-xl font-medium text-white">
                       <Link
