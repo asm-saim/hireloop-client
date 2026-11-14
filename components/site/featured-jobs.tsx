@@ -78,12 +78,7 @@ export async function FeaturedJobs() {
         </Stagger>
 
         <FadeIn className="mt-10 flex justify-center">
-          <Button
-            variant="light"
-            size="lg"
-            render={<Link href="/jobs" />}
-            nativeButton={false}
-          >
+          <Button size="lg" render={<Link href="/jobs" />} nativeButton={false}>
             View all job open
           </Button>
         </FadeIn>

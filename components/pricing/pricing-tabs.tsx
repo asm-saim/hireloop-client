@@ -41,14 +41,12 @@ function PlanAction({
   viewer: PricingViewer
 }) {
   const id = plan.name.toLowerCase()
-  const variant = plan.featured ? "light" : "secondary"
   const base =
     "h-[55px] w-full justify-between px-6 text-base tracking-[-0.02em]"
 
   if (viewer.role === "guest") {
     return (
       <Button
-        variant={variant}
         render={<Link href="/register" />}
         nativeButton={false}
         className={base}
@@ -108,9 +106,7 @@ function PlanAction({
       : rank(id) > rank(current)
         ? `Upgrade to ${plan.name}`
         : `Switch to ${plan.name}`
-  return (
-    <PlanButton plan={id} label={label} variant={variant} className={base} />
-  )
+  return <PlanButton plan={id} label={label} className={base} />
 }
 
 function PlanCard({

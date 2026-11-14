@@ -57,7 +57,6 @@ export function Cta() {
         </div>
         <div className="flex w-full flex-col items-stretch justify-center gap-4 sm:w-auto sm:flex-row">
           <Button
-            variant="light"
             size="lg"
             render={<Link href="/register" />}
             nativeButton={false}

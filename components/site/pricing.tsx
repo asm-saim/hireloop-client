@@ -162,7 +162,6 @@ export function Pricing() {
                   </div>
 
                   <Button
-                    variant={plan.featured ? "light" : "secondary"}
                     render={<Link href="/register" />}
                     nativeButton={false}
                     className="h-[3.4375rem] w-full justify-between px-6 text-base tracking-[-0.02em]"

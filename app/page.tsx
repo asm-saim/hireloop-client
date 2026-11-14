@@ -31,10 +31,13 @@ export default function HomePage() {
         <div className="absolute inset-x-0 top-0 h-[18.75rem] bg-[radial-gradient(ellipse_60%_100%_at_50%_0%,rgb(255_255_255/0.04),transparent)]" />
 
         {/* purple glow at the bottom */}
-        <div className="absolute bottom-[-12%] left-1/2 h-64 w-[60%] -translate-x-1/2 rounded-full bg-[#6351ff]/50 blur-[7.5rem]" />
+        <div className="absolute bottom-[-12%] left-1/2 h-64 w-[60%] -translate-x-1/2 rounded-full bg-[#6351ff]/50 blur-[7.5rem] motion-safe:animate-glow-pulse" />
 
         {/* tiny particles */}
-        <div className="absolute inset-0" style={{ backgroundImage: particles }} />
+        <div
+          className="absolute inset-0 motion-safe:animate-particle-twinkle"
+          style={{ backgroundImage: particles }}
+        />
       </div>
 
       <Navbar />

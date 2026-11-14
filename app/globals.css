@@ -34,11 +34,11 @@
   --color-footer-link: #d0d5dd;
   --color-footer-meta: #acabb2;
 
---radius-sm: calc(var(--radius) - 0.25rem);
---radius-md: calc(var(--radius) - 0.125rem);
---radius-lg: var(--radius);
---radius-xl: calc(var(--radius) + 0.25rem);
---radius-2xl: calc(var(--radius) + 0.5rem);
+  --radius-sm: calc(var(--radius) - 0.25rem);
+  --radius-md: calc(var(--radius) - 0.125rem);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 0.25rem);
+  --radius-2xl: calc(var(--radius) + 0.5rem);
 
   --font-sans: var(--nf-manrope), ui-sans-serif, system-ui, sans-serif;
   --font-manrope: var(--nf-manrope), ui-sans-serif, system-ui, sans-serif;
@@ -47,6 +47,34 @@
   --font-jakarta: var(--nf-jakarta), ui-sans-serif, system-ui, sans-serif;
   --font-rethink: var(--nf-rethink), ui-sans-serif, system-ui, sans-serif;
   --font-mono-label: var(--nf-space-mono), ui-monospace, monospace;
+
+  /* Ambient motion: slow enough to read as light, not as a loading state. */
+  --animate-glow-pulse: glow-pulse 14s ease-in-out infinite;
+  --animate-particle-twinkle: particle-twinkle 7s ease-in-out infinite;
+}
+
+/* Animates the individual `scale`/`opacity` properties so it composes with
+   Tailwind's `translate` utilities instead of overriding them. */
+@keyframes glow-pulse {
+  0%,
+  100% {
+    opacity: 0.45;
+    scale: 1;
+  }
+  50% {
+    opacity: 0.75;
+    scale: 1.08;
+  }
+}
+
+@keyframes particle-twinkle {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 /* HireLoop is a dark-first product, so the dark palette is the :root default. */
@@ -83,7 +111,7 @@
     overflow-x: clip;
   }
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-background font-sans text-foreground antialiased;
   }
   @media (prefers-reduced-motion: reduce) {
     html {

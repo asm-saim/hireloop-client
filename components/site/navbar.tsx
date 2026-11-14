@@ -66,7 +66,6 @@ export function Navbar() {
                   <Button
                     render={<Link href="/register" />}
                     nativeButton={false}
-                    className="h-[3.10rem] text-base"
                   >
                     Get Started
                   </Button>

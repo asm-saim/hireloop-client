@@ -11,7 +11,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-primary text-primary-foreground shadow-[inset_0_0.1875rem_0.625rem_rgb(255_255_255/0.2)] hover:bg-primary/90",
+          "bg-[linear-gradient(to_right,#005C97_0%,#363795_51%,#005C97_100%)] [background-size:200%_auto] bg-left text-white shadow-[inset_0_0.1875rem_0.625rem_rgb(255_255_255/0.2)] duration-500 hover:bg-right",
         // Solid white button used for primary actions on dark surfaces.
         light:
           "border-[#090a15]/10 bg-white text-[#0b0b14] shadow-[inset_0_0.1875rem_0.625rem_rgb(255_255_255/0.2)] hover:bg-white/90",
