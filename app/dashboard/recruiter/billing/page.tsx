@@ -2,6 +2,8 @@ import Link from "next/link"
 import { ArrowUpRight, Receipt } from "lucide-react"
 
 import { EmptyState } from "@/components/dashboard/empty-state"
+import { CheckoutReturn } from "@/components/billing/plan-actions"
+import { SubscriptionNote } from "@/components/billing/subscription-note"
 import { PageHeader } from "@/components/dashboard/page-header"
 import { Button } from "@/components/ui/button"
 import { formatDate, timeAgo } from "@/lib/format"
@@ -13,15 +15,26 @@ import {
   getCompanyByOwner,
   getRecruiterPlan,
 } from "@/server/repositories/recruiter"
+import { getSubscription } from "@/server/services/billing"
 import { PLAN_LABEL, RECRUITER_LIMITS } from "@/server/services/plan-limits"
 
-export default async function RecruiterBillingPage() {
+export default async function RecruiterBillingPage({
+  searchParams,
+}: {
+  searchParams: Promise<Record<string, string | string[] | undefined>>
+}) {
   const user = await requireRole("recruiter")
+  const sp = await searchParams
+  const sessionId =
+    typeof sp.session_id === "string" && sp.checkout === "success"
+      ? sp.session_id
+      : null
   const company = await getCompanyByOwner(user.id)
-  const [plan, active, payments] = await Promise.all([
+  const [plan, active, payments, sub] = await Promise.all([
     getRecruiterPlan(user.id),
     company ? countActiveJobs(company._id) : Promise.resolve(0),
     listPayments(user.id),
+    getSubscription(user.id),
   ])
   const limit = RECRUITER_LIMITS[plan].activeJobs
   const pct = Math.min(100, Math.round((active / limit) * 100))
@@ -30,6 +43,12 @@ export default async function RecruiterBillingPage() {
 
   return (
     <div className="mx-auto flex max-w-[68.75rem] flex-col gap-8">
+      {sessionId && (
+        <CheckoutReturn
+          sessionId={sessionId}
+          path="/dashboard/recruiter/billing"
+        />
+      )}
       <PageHeader
         title="Subscription & Billing"
         text="Your plan, active job usage and payment history."
@@ -75,6 +94,7 @@ export default async function RecruiterBillingPage() {
             )}
           </div>
         </div>
+        <SubscriptionNote sub={sub} />
         <div className="flex flex-col gap-2">
           <div className="flex items-baseline justify-between gap-4">
             <p className="text-sm font-medium text-white">Active job posts</p>

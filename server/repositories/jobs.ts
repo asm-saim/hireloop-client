@@ -116,13 +116,18 @@ export async function getJobs(filters: JobFilters = {}) {
   return attachCompanies(docs, { approvedOnly: true })
 }
 
-export async function getJob(id: string) {
+export async function getJob(
+  id: string,
+  opts: { includeInactive?: boolean } = {}
+) {
   const db = await getDb()
   const doc = await db
     .collection<JobDoc>("jobs")
-    .findOne({ _id: id, status: "active" })
+    .findOne(opts.includeInactive ? { _id: id } : { _id: id, status: "active" })
   if (!doc) return null
-  const [job] = await attachCompanies([doc], { approvedOnly: true })
+  const [job] = await attachCompanies([doc], {
+    approvedOnly: !opts.includeInactive,
+  })
   return job ?? null
 }
 

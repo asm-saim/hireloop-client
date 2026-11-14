@@ -65,6 +65,7 @@ export async function saveCompany(
       ...input,
       status: "pending",
       ownerId: userId,
+      createdAt: new Date(),
       ...(logo ? { logoVersion: version } : {}),
     })
   }

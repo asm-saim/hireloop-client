@@ -2,6 +2,8 @@ import Link from "next/link"
 import { ArrowUpRight, Receipt } from "lucide-react"
 
 import { EmptyState } from "@/components/dashboard/empty-state"
+import { CheckoutReturn } from "@/components/billing/plan-actions"
+import { SubscriptionNote } from "@/components/billing/subscription-note"
 import { PageHeader } from "@/components/dashboard/page-header"
 import { Button } from "@/components/ui/button"
 import { formatDate, timeAgo } from "@/lib/format"
@@ -9,6 +11,7 @@ import { requireRole } from "@/lib/session"
 import { applicationsThisMonth } from "@/server/repositories/applications"
 import { getSeekerPlan, listPayments } from "@/server/repositories/profiles"
 import { countSaved } from "@/server/repositories/saved"
+import { getSubscription } from "@/server/services/billing"
 import { PLAN_LABEL, SEEKER_LIMITS } from "@/server/services/plan-limits"
 import { seekerPlans } from "@/lib/pricing"
 
@@ -49,13 +52,23 @@ function Usage({
   )
 }
 
-export default async function SeekerBillingPage() {
+export default async function SeekerBillingPage({
+  searchParams,
+}: {
+  searchParams: Promise<Record<string, string | string[] | undefined>>
+}) {
   const user = await requireRole("seeker")
-  const [plan, used, saved, payments] = await Promise.all([
+  const sp = await searchParams
+  const sessionId =
+    typeof sp.session_id === "string" && sp.checkout === "success"
+      ? sp.session_id
+      : null
+  const [plan, used, saved, payments, sub] = await Promise.all([
     getSeekerPlan(user.id),
     applicationsThisMonth(user.id),
     countSaved(user.id),
     listPayments(user.id),
+    getSubscription(user.id),
   ])
   const limits = SEEKER_LIMITS[plan]
   const price =
@@ -63,6 +76,12 @@ export default async function SeekerBillingPage() {
 
   return (
     <div className="mx-auto flex max-w-[68.75rem] flex-col gap-8">
+      {sessionId && (
+        <CheckoutReturn
+          sessionId={sessionId}
+          path="/dashboard/seeker/billing"
+        />
+      )}
       <PageHeader
         title="Subscription & Billing"
         text="Your plan, usage and payment history."
@@ -108,6 +127,7 @@ export default async function SeekerBillingPage() {
             )}
           </div>
         </div>
+        <SubscriptionNote sub={sub} />
         <div className="grid gap-6 sm:grid-cols-2">
           <Usage
             label="Applications this month"

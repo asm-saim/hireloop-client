@@ -4,24 +4,132 @@ import { useState } from "react"
 import Link from "next/link"
 import { ArrowRight, Check } from "lucide-react"
 
+import {
+  CancelSubscriptionButton,
+  PlanButton,
+} from "@/components/billing/plan-actions"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { recruiterPlans, seekerPlans, type Plan } from "@/lib/pricing"
 
 type Audience = "seekers" | "recruiters"
 
+export type PricingViewer = {
+  role: "guest" | "seeker" | "recruiter" | "admin"
+  /** Current plan id: "free", "pro", "growth"… */
+  plan: string
+  /** "canceling" when a paid plan is set to end at the period end. */
+  status?: string
+}
+
 const tabs: { id: Audience; label: string }[] = [
   { id: "seekers", label: "For Job Seekers" },
   { id: "recruiters", label: "For Recruiters" },
 ]
 
-function PlanCard({ plan }: { plan: Plan }) {
+const disabledClass = "h-[55px] w-full justify-center px-6 text-base"
+
+function PlanAction({
+  plan,
+  audience,
+  plans,
+  viewer,
+}: {
+  plan: Plan
+  audience: Audience
+  plans: Plan[]
+  viewer: PricingViewer
+}) {
+  const id = plan.name.toLowerCase()
+  const variant = plan.featured ? "light" : "secondary"
+  const base =
+    "h-[55px] w-full justify-between px-6 text-base tracking-[-0.02em]"
+
+  if (viewer.role === "guest") {
+    return (
+      <Button
+        variant={variant}
+        render={<Link href="/register" />}
+        nativeButton={false}
+        className={base}
+      >
+        {plan.price === 0 ? "Get started free" : "Choose this plan"}
+        <ArrowRight aria-hidden className="size-6" />
+      </Button>
+    )
+  }
+  if (viewer.role === "admin") {
+    return (
+      <Button variant="secondary" disabled className={disabledClass}>
+        Admin accounts can&apos;t subscribe
+      </Button>
+    )
+  }
+  const mine = (audience === "seekers") === (viewer.role === "seeker")
+  if (!mine) {
+    return (
+      <Button variant="secondary" disabled className={disabledClass}>
+        {audience === "seekers"
+          ? "For job seeker accounts"
+          : "For recruiter accounts"}
+      </Button>
+    )
+  }
+
+  const rank = (name: string) =>
+    plans.findIndex((p) => p.name.toLowerCase() === name)
+  const current = viewer.plan
+  if (id === current) {
+    return (
+      <Button variant="secondary" disabled className={disabledClass}>
+        {viewer.status === "canceling"
+          ? "Current plan (ends soon)"
+          : "Current plan"}
+      </Button>
+    )
+  }
+  if (plan.price === 0) {
+    // Back to Free = cancel at period end.
+    return viewer.status === "canceling" ? (
+      <Button variant="secondary" disabled className={disabledClass}>
+        Moving to Free at period end
+      </Button>
+    ) : (
+      <CancelSubscriptionButton
+        label="Downgrade to Free"
+        variant="secondary"
+        className={disabledClass}
+      />
+    )
+  }
+  const label =
+    current === "free"
+      ? "Choose this plan"
+      : rank(id) > rank(current)
+        ? `Upgrade to ${plan.name}`
+        : `Switch to ${plan.name}`
+  return (
+    <PlanButton plan={id} label={label} variant={variant} className={base} />
+  )
+}
+
+function PlanCard({
+  plan,
+  audience,
+  plans,
+  viewer,
+}: {
+  plan: Plan
+  audience: Audience
+  plans: Plan[]
+  viewer: PricingViewer
+}) {
   return (
     <article
       className={cn(
         "flex h-full flex-col justify-between gap-10 rounded-3xl border p-6",
         plan.featured
-          ? "border-white/20 bg-surface shadow-[inset_0_0_2rem_rgb(120_120_120/0.25)]"
+          ? "border-white/20 bg-surface shadow-[inset_0_0_32px_rgb(120_120_120/0.25)]"
           : "border-[#f6efe1]/20 bg-ink"
       )}
     >
@@ -55,21 +163,20 @@ function PlanCard({ plan }: { plan: Plan }) {
           ))}
         </ul>
       </div>
-      <Button
-        variant={plan.featured ? "light" : "secondary"}
-        render={<Link href="/register" />}
-        nativeButton={false}
-        className="h-[3.4375rem] w-full justify-between px-6 text-base"
-      >
-        {plan.price === 0 ? "Get started free" : "Choose this plan"}
-        <ArrowRight aria-hidden className="size-6" />
-      </Button>
+      <PlanAction
+        plan={plan}
+        audience={audience}
+        plans={plans}
+        viewer={viewer}
+      />
     </article>
   )
 }
 
-export function PricingTabs() {
-  const [audience, setAudience] = useState<Audience>("seekers")
+export function PricingTabs({ viewer }: { viewer: PricingViewer }) {
+  const [audience, setAudience] = useState<Audience>(
+    viewer.role === "recruiter" ? "recruiters" : "seekers"
+  )
   const plans = audience === "seekers" ? seekerPlans : recruiterPlans
 
   return (
@@ -86,7 +193,7 @@ export function PricingTabs() {
             aria-pressed={audience === t.id}
             onClick={() => setAudience(t.id)}
             className={cn(
-              "h-[2.6875rem] rounded-full px-4 font-tight text-base font-medium tracking-[-0.02em] transition-colors outline-none focus-visible:ring-3 focus-visible:ring-ring/50 sm:px-6 sm:text-lg",
+              "h-[43px] rounded-full px-4 font-tight text-base font-medium tracking-[-0.02em] transition-colors outline-none focus-visible:ring-3 focus-visible:ring-ring/50 sm:px-6 sm:text-lg",
               audience === t.id
                 ? "bg-white text-ink"
                 : "text-white hover:bg-white/10"
@@ -99,7 +206,13 @@ export function PricingTabs() {
 
       <div className="grid w-full gap-4 lg:grid-cols-3 lg:gap-6">
         {plans.map((plan) => (
-          <PlanCard key={`${audience}-${plan.name}`} plan={plan} />
+          <PlanCard
+            key={`${audience}-${plan.name}`}
+            plan={plan}
+            audience={audience}
+            plans={plans}
+            viewer={viewer}
+          />
         ))}
       </div>
     </div>

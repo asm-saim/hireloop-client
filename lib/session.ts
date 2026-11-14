@@ -33,7 +33,9 @@ export async function getSessionUser(): Promise<SessionUser | null> {
     email: string
     image?: string | null
     role?: unknown
+    status?: unknown
   }
+  if (u.status === "suspended") return null
   return {
     id: u.id,
     name: u.name,

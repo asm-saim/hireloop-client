@@ -57,10 +57,10 @@ function Section({ title, items }: { title: string; items: string[] }) {
 
 export default async function JobDetailsPage({ params }: Props) {
   const { jobId } = await params
-  const job = await getJob(jobId)
+  const user = await getSessionUser()
+  const job = await getJob(jobId, { includeInactive: user?.role === "admin" })
   if (!job) notFound()
   const similar = await getSimilarJobs(job)
-  const user = await getSessionUser()
   const viewer = !user ? "guest" : user.role === "seeker" ? "seeker" : "other"
   const [applied, saved] =
     user?.role === "seeker"

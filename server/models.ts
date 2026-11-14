@@ -30,6 +30,7 @@ export type CompanyDoc = {
   ownerId?: string
   /** Set when a logo is stored in the company_logos collection. */
   logoVersion?: number
+  createdAt?: Date
 }
 
 export type JobDoc = {
@@ -83,6 +84,11 @@ export type ProfileDoc = {
 export type SubscriptionDoc = {
   _id: string // the user id
   plan: string
+  /** "canceling" = paid until the period ends, then back to free. */
+  status?: "active" | "canceling" | "canceled"
+  stripeCustomerId?: string
+  stripeSubscriptionId?: string
+  currentPeriodEnd?: Date
   updatedAt: Date
 }
 
