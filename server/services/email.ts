@@ -60,7 +60,7 @@ export async function notifyApplicantStatusChange(input: {
 <tr><td style="padding:4px 16px 4px 0;color:#666">Job</td><td><strong>${escapeHtml(input.jobTitle)}</strong></td></tr>
 <tr><td style="padding:4px 16px 4px 0;color:#666">Company</td><td>${escapeHtml(input.companyName)}</td></tr>
 <tr><td style="padding:4px 16px 4px 0;color:#666">Status</td><td><strong>${escapeHtml(label)}</strong></td></tr></table>
-<p><a href="${link}" style="background:#5c53fe;color:#fff;padding:10px 18px;border-radius:8px;text-decoration:none">View my applications</a></p>
+<p><a href="${link}" style="background:#5b79d6;color:#fff;padding:10px 18px;border-radius:8px;text-decoration:none">View my applications</a></p>
 <p style="color:#888;font-size:12px">HireLoop</p></div>`
 
   const t = getTransporter()

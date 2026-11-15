@@ -95,7 +95,7 @@ export function LoginForm() {
               type="checkbox"
               checked={remember}
               onChange={(e) => setRemember(e.target.checked)}
-              className="size-5 cursor-pointer rounded-md border border-white/30 bg-[#101010] accent-[#5c53fe]"
+              className="size-5 cursor-pointer rounded-md border border-white/30 bg-[#101010] accent-[#5b79d6]"
             />
             Keep me signed in
           </label>

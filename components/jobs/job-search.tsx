@@ -114,7 +114,7 @@ export function JobSearch({
                       name="type"
                       value={t}
                       defaultChecked={values.types.includes(t)}
-                      className="size-5 cursor-pointer rounded-md border border-white/30 bg-[#101010] accent-[#5c53fe]"
+                      className="size-5 cursor-pointer rounded-md border border-white/30 bg-[#101010] accent-[#5b79d6]"
                     />
                     {t}
                   </label>

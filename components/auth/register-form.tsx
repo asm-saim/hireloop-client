@@ -168,7 +168,7 @@ export function RegisterForm() {
                 checked={terms}
                 onChange={(e) => setTerms(e.target.checked)}
                 aria-invalid={errors.terms ? true : undefined}
-                className="mt-0.5 size-5 shrink-0 cursor-pointer rounded-md border border-white/30 bg-[#101010] accent-[#5c53fe]"
+                className="mt-0.5 size-5 shrink-0 cursor-pointer rounded-md border border-white/30 bg-[#101010] accent-[#5b79d6]"
               />
               <span>
                 I agree to the{" "}

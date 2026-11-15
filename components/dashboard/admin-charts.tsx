@@ -48,7 +48,7 @@ export function JobsByCategoryChart({
             />
             <Bar
               dataKey="count"
-              fill="#5c53fe"
+              fill="#5b79d6"
               radius={[6, 6, 0, 0]}
               maxBarSize={48}
             />

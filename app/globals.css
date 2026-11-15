@@ -24,7 +24,7 @@
   --color-ring: var(--ring);
 
   /* HireLoop brand tokens (from the Figma file) */
-  --color-brand: #5c53fe;
+  --color-brand: #5b79d6;
   --color-brand-pink: #dc02ce;
   --color-ink: #010103;
   --color-surface: #151516;
@@ -86,7 +86,7 @@
   --card-foreground: #ffffff;
   --popover: #151516;
   --popover-foreground: #ffffff;
-  --primary: #5c53fe;
+  --primary: #5b79d6;
   --primary-foreground: #ffffff;
   --secondary: #1f1f1f;
   --secondary-foreground: #ffffff;
@@ -97,7 +97,7 @@
   --destructive: #f04438;
   --border: rgb(255 255 255 / 0.1);
   --input: rgb(255 255 255 / 0.2);
-  --ring: #5c53fe;
+  --ring: #5b79d6;
   color-scheme: dark;
 }
 

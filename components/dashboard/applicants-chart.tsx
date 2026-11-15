@@ -61,7 +61,7 @@ export function ApplicantsChart({
             />
             <Bar
               dataKey="applicants"
-              fill="#5c53fe"
+              fill="#5b79d6"
               radius={[0, 6, 6, 0]}
               barSize={20}
             />
