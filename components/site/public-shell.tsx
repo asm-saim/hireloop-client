@@ -6,7 +6,7 @@ export function PublicShell({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Navbar />
-      <main className="relative pt-[7.5rem] sm:pt-[8.75rem]">
+      <main className="relative pt-8 sm:pt-10 lg:pt-12">
         <div
           aria-hidden
           className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[26.25rem] bg-[radial-gradient(ellipse_60%_70%_at_50%_0%,rgb(91_121_214/0.22),rgb(56_189_248/0.08)_45%,transparent)]"

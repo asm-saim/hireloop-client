@@ -21,7 +21,7 @@ function BriefcaseEmoji() {
 
 export function Hero() {
   return (
-    <div className="relative z-10 mx-auto flex max-w-[82.5rem] flex-col items-center px-4 pt-[9.375rem] sm:px-8 sm:pt-[11.875rem] lg:pt-[13.25rem] xl:px-[3.75rem]">
+    <div className="relative z-10 mx-auto flex max-w-[82.5rem] flex-col items-center px-4 pt-14 sm:px-8 sm:pt-24 lg:pt-28 xl:px-[3.75rem]">
       <div className="flex w-full max-w-[49rem] flex-col items-center gap-8 text-center sm:gap-12">
         <div className="flex w-full flex-col items-center gap-8">
           {/* Announcement pill */}
@@ -30,7 +30,7 @@ export function Hero() {
               aria-hidden
               className="hidden h-px w-10 bg-gradient-to-r from-transparent to-white/70 sm:block sm:w-16"
             />
-            <p className="flex items-center gap-3 rounded-full border border-white/10 bg-gradient-to-b from-[#474747] to-[#010102] px-4 py-2 font-mono-label text-sm text-white shadow-[inset_0_0_0.375rem_rgb(0_0_0/0.1)] sm:gap-4 sm:px-6 sm:py-3 sm:text-xl">
+            <p className="flex items-center gap-3 rounded-full border border-white/10 bg-gradient-to-b from-[#1b2a45] to-[#010102] px-4 py-2 font-mono-label text-sm text-white shadow-[inset_0_0_0.375rem_rgb(0_0_0/0.1)] sm:gap-4 sm:px-6 sm:py-3 sm:text-xl">
               <BriefcaseEmoji />
               50,000+ new jobs this month
             </p>

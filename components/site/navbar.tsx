@@ -2,12 +2,18 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { AnimatePresence, motion } from "framer-motion"
+import {
+  AnimatePresence,
+  motion,
+  useMotionValueEvent,
+  useScroll,
+} from "framer-motion"
 import { Menu, X } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Logo } from "@/components/site/logo"
 import { useSession } from "@/lib/auth-client"
+import { cn } from "@/lib/utils"
 
 const links = [
   { label: "Browse Jobs", href: "/jobs" },
@@ -19,10 +25,23 @@ export function Navbar() {
   const [open, setOpen] = useState(false)
   const { data: session } = useSession()
 
+  // Sticky, not fixed: the header stays in flow so pages never need to
+  // compensate for its height. Once the page scrolls, the glass pill gains a
+  // denser background and a shadow so it keeps separating from content.
+  const { scrollY } = useScroll()
+  const [scrolled, setScrolled] = useState(false)
+
+  useMotionValueEvent(scrollY, "change", (y) => setScrolled(y > 12))
+
   return (
-    <header className="absolute inset-x-0 top-0 z-50 px-4 pt-4 sm:px-8 lg:pt-6 xl:px-[3.75rem]">
+    <header className="sticky top-0 z-50 px-4 pt-4 sm:px-8 lg:pt-6 xl:px-[3.75rem]">
       <div className="relative mx-auto max-w-[82.5rem]">
-        <div className="flex h-[4.625rem] items-center justify-between rounded-2xl surface-glass pr-2 pl-5 sm:pl-6">
+        <div
+          className={cn(
+            "flex h-[4.625rem] items-center justify-between rounded-2xl pr-2 pl-5 transition-[background-color,border-color,box-shadow] duration-300 ease-out sm:pl-6",
+            scrolled ? "surface-glass-brand-deep" : "surface-glass-brand"
+          )}
+        >
           <Logo />
 
           {/* Desktop */}
@@ -96,7 +115,7 @@ export function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.2 }}
-              className="absolute inset-x-0 top-[5.125rem] rounded-2xl surface-glass p-4 lg:hidden"
+              className="absolute inset-x-0 top-[5.125rem] rounded-2xl surface-glass-brand-deep p-4 lg:hidden"
             >
               <ul className="flex flex-col">
                 {links.map((l) => (

@@ -23,11 +23,11 @@ export function Atmosphere() {
       aria-hidden
       className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[100svh] max-h-[60rem] min-h-[43.75rem] overflow-hidden [mask-image:linear-gradient(to_bottom,#000_85%,transparent)]"
     >
-      {/* grey top/edges, black arch rising from the bottom center */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_85%_100%_at_50%_100%,#000_40%,#303032_100%)]" />
+      {/* coal top/edges, black arch rising from the bottom center */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_85%_100%_at_50%_100%,#000_42%,#06080c_72%,#0c1220_100%)]" />
 
       {/* subtle light lift along the top */}
-      <div className="absolute inset-x-0 top-0 h-[18.75rem] bg-[radial-gradient(ellipse_60%_100%_at_50%_0%,rgb(255_255_255/0.04),transparent)]" />
+      <div className="absolute inset-x-0 top-0 h-[18.75rem] bg-[radial-gradient(ellipse_60%_100%_at_50%_0%,rgb(91_121_214/0.10),transparent)]" />
 
       {/* aurora mesh — brand blue, aqua, indigo */}
       <div className="absolute bottom-[-14%] left-1/2 h-72 w-[52%] -translate-x-1/2 rounded-full bg-brand/40 blur-[7.5rem] motion-safe:animate-glow-pulse" />
@@ -35,7 +35,7 @@ export function Atmosphere() {
       <div className="absolute bottom-[12%] left-[2%] h-64 w-[36%] rounded-full bg-[#363795]/50 blur-[7.5rem] [animation-delay:-9s] motion-safe:animate-glow-pulse" />
 
       {/* dot grid, faded toward the arch */}
-      <div className="absolute inset-0 [background-image:radial-gradient(rgb(255_255_255/0.6)_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_60%_45%_at_50%_0%,#000,transparent_75%)] [background-size:1.75rem_1.75rem] opacity-[0.14]" />
+      <div className="absolute inset-0 [background-image:radial-gradient(rgb(255_255_255/0.6)_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_60%_45%_at_50%_0%,#000,transparent_75%)] [background-size:1.75rem_1.75rem] opacity-[0.10]" />
 
       {/* tiny particles */}
       <div

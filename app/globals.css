@@ -124,10 +124,11 @@
 /* ---------------------------------------------------------------------------
    Glass surfaces.
 
-   One recipe, two weights: `surface` for dense list/table content (a blur per
-   row is a real scroll cost), `surface-glass` for chrome and hero elements
-   that sit above the aurora mesh. `surface-hover` is the shared hover state —
-   pair it via `hover:surface-hover`.
+   One recipe, three weights: `surface` for dense list/table content (a blur
+   per row is a real scroll cost), `surface-glass` for chrome and hero elements
+   that sit above the aurora mesh, and the `surface-glass-brand` pair for the
+   navbar — same glass, tinted toward the brand ramp so it never reads as grey.
+   `surface-hover` is the shared hover state — pair it via `hover:surface-hover`.
    ------------------------------------------------------------------------- */
 @utility surface {
   background-color: rgb(255 255 255 / 0.035);
@@ -144,6 +145,41 @@
     inset 0 1px 0 rgb(255 255 255 / 0.08),
     0 1px 2px rgb(0 0 0 / 0.5);
   backdrop-filter: blur(24px);
+}
+
+@utility surface-glass-brand {
+  background-color: rgb(11 20 36 / 0.55);
+  background-image: linear-gradient(
+    to bottom,
+    rgb(255 255 255 / 0.1),
+    rgb(255 255 255 / 0.02) 45%,
+    transparent 62%
+  );
+  border: 1px solid rgb(91 121 214 / 0.28);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.16),
+    inset 0 -1px 0 rgb(91 121 214 / 0.12),
+    0 10px 30px rgb(0 0 0 / 0.35);
+  backdrop-filter: blur(24px) saturate(140%);
+}
+
+/* Same glass once content scrolls behind it: denser base, brighter rim. The
+   gloss gradient is repeated on purpose — toggling `background-image` off
+   mid-transition would snap the sheen away. */
+@utility surface-glass-brand-deep {
+  background-color: rgb(6 11 22 / 0.88);
+  background-image: linear-gradient(
+    to bottom,
+    rgb(255 255 255 / 0.08),
+    rgb(255 255 255 / 0.02) 45%,
+    transparent 62%
+  );
+  border: 1px solid rgb(91 121 214 / 0.35);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.14),
+    inset 0 -1px 0 rgb(91 121 214 / 0.16),
+    0 14px 34px rgb(0 0 0 / 0.5);
+  backdrop-filter: blur(24px) saturate(140%);
 }
 
 @utility surface-hover {
