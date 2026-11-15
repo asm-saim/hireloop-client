@@ -77,12 +77,12 @@ export default async function ManageJobsPage() {
         </div>
       </PageHeader>
 
-      <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-white/[0.07] bg-surface px-5 py-4">
+      <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl surface px-5 py-4">
         <p className="text-white/80">
           {PLAN_LABEL[plan]} plan · active job posts
         </p>
         <p
-          className="font-jakarta text-lg font-semibold text-white"
+          className="font-tight text-lg font-semibold text-white"
           aria-label={`${active} of ${limit} active job posts used`}
         >
           {active} / {limit}
@@ -100,7 +100,7 @@ export default async function ManageJobsPage() {
           }}
         />
       ) : (
-        <div className="overflow-x-auto rounded-3xl border border-white/[0.07] bg-surface">
+        <div className="overflow-x-auto rounded-3xl surface">
           <table className="w-full min-w-[52rem] text-left text-sm">
             <thead className="border-b border-white/10 text-white/60">
               <tr>

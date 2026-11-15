@@ -1,15 +1,12 @@
 import Link from "next/link"
-import {
-  ArrowRight,
-  BriefcaseBusiness,
-  CircleDollarSign,
-  MapPin,
-} from "lucide-react"
+import { ArrowRight, CircleDollarSign, MapPin } from "lucide-react"
 
+import { JobTypeBadge } from "@/components/jobs/job-type-badge"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { FadeIn, Stagger, StaggerItem } from "@/components/site/motion"
 import { SectionHeading } from "@/components/site/section-heading"
+import { SpotlightCard } from "@/components/site/spotlight-card"
 import { getFeaturedJobs } from "@/server/repositories/jobs"
 import { formatSalary } from "@/lib/format"
 
@@ -28,10 +25,13 @@ export async function FeaturedJobs() {
         <Stagger className="mx-auto mt-12 grid max-w-[82.5rem] gap-4 sm:mt-16 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
           {jobs.map((job) => (
             <StaggerItem key={job.id} hover className="h-full">
-              <article className="flex h-full flex-col justify-between gap-8 rounded-3xl bg-surface p-6 lg:min-h-[22.6875rem]">
+              <SpotlightCard
+                as="article"
+                className="flex h-full flex-col justify-between gap-8 rounded-3xl surface p-6 transition-colors hover:surface-hover lg:min-h-[22.6875rem]"
+              >
                 <div className="flex flex-col gap-8">
                   <div className="flex flex-col gap-3">
-                    <h3 className="font-tight text-2xl leading-[1.3] font-medium text-white sm:text-[2rem]">
+                    <h3 className="font-tight text-2xl leading-[1.3] font-semibold text-white sm:text-[2rem]">
                       {job.title}
                     </h3>
                     <p className="text-base leading-normal text-white/70">
@@ -46,10 +46,7 @@ export async function FeaturedJobs() {
                       </Badge>
                     </li>
                     <li>
-                      <Badge variant="chip">
-                        <BriefcaseBusiness aria-hidden />
-                        {job.type}
-                      </Badge>
+                      <JobTypeBadge type={job.type} />
                     </li>
                     <li>
                       <Badge variant="chip">
@@ -70,9 +67,12 @@ export async function FeaturedJobs() {
                   className="h-[3.4375rem] w-fit gap-1 bg-white/[0.06] px-6 text-base"
                 >
                   Apply Now
-                  <ArrowRight aria-hidden />
+                  <ArrowRight
+                    aria-hidden
+                    className="transition-transform duration-300 group-hover/button:translate-x-0.5"
+                  />
                 </Button>
-              </article>
+              </SpotlightCard>
             </StaggerItem>
           ))}
         </Stagger>

@@ -94,7 +94,7 @@ export default async function AdminJobsPage({
           text="Try a different search or filter."
         />
       ) : (
-        <div className="overflow-x-auto rounded-3xl border border-white/[0.07] bg-surface">
+        <div className="overflow-x-auto rounded-3xl surface">
           <table className="w-full min-w-[60rem] text-left text-sm">
             <thead className="border-b border-white/10 text-white/60">
               <tr>

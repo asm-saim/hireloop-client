@@ -52,7 +52,7 @@ function SidebarContent({
     <div className="flex h-full flex-col gap-6 overflow-y-auto p-5">
       <Logo />
 
-      <div className="flex items-center gap-3 rounded-2xl border border-white/[0.07] bg-surface p-3">
+      <div className="flex items-center gap-3 rounded-2xl surface p-3">
         <UserAvatar name={user.name} image={user.image} />
         <div className="min-w-0">
           <p className="truncate text-sm font-semibold text-white">
@@ -141,12 +141,12 @@ export function DashboardShell({
   return (
     <div className="min-h-svh lg:grid lg:grid-cols-[18rem_1fr]">
       {/* Desktop sidebar */}
-      <aside className="sticky top-0 hidden h-svh border-r border-white/10 bg-ink lg:block">
+      <aside className="sticky top-0 hidden h-svh border-r border-white/10 bg-white/[0.02] backdrop-blur-xl lg:block">
         <SidebarContent user={user} onNavigate={() => {}} />
       </aside>
 
       {/* Mobile top bar */}
-      <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-white/10 bg-ink/90 px-4 backdrop-blur lg:hidden">
+      <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-white/10 bg-ink/80 px-4 backdrop-blur-xl lg:hidden">
         <Logo />
         <Button
           type="button"

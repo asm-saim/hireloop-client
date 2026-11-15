@@ -44,10 +44,10 @@ function Globe() {
           r="1"
           gradientTransform="translate(618 24) scale(516 443)"
         >
-          <stop offset="0" stopColor="#5c53fe" />
-          <stop offset="0.29" stopColor="#5c53fe" stopOpacity="0.6" />
-          <stop offset="0.52" stopColor="#5c53fe" stopOpacity="0.5" />
-          <stop offset="1" stopColor="#5c53fe" stopOpacity="0" />
+          <stop offset="0" stopColor="#5b79d6" />
+          <stop offset="0.29" stopColor="#4f8fdc" stopOpacity="0.6" />
+          <stop offset="0.52" stopColor="#38bdf8" stopOpacity="0.45" />
+          <stop offset="1" stopColor="#38bdf8" stopOpacity="0" />
         </radialGradient>
         <clipPath id="globe-clip">
           <ellipse cx="618" cy="542.5" rx="604" ry="518.5" />
@@ -60,7 +60,7 @@ function Globe() {
         cy="518.5"
         rx="618"
         ry="518.5"
-        fill="#5c53fe"
+        fill="#5b79d6"
         filter="url(#globe-rim-blur)"
       />
       {/* planet body */}
@@ -109,14 +109,14 @@ export function GlobeStats() {
           {stats.map(({ icon: Icon, value, suffix, label }) => (
             <div
               key={label}
-              className="flex min-h-[11rem] flex-col justify-between rounded-2xl border border-white/10 bg-gradient-to-b from-[#010102] to-[#313131] p-4 sm:min-h-[15.875rem] sm:p-6"
+              className="flex min-h-[11rem] flex-col justify-between rounded-2xl surface p-4 transition-colors hover:surface-hover sm:min-h-[15.875rem] sm:p-6"
             >
-              <Icon aria-hidden className="size-6 text-white" />
+              <Icon aria-hidden className="size-6 text-aqua" />
               <div className="flex flex-col gap-2 sm:gap-4">
-                <dd className="order-1 font-jakarta text-4xl leading-[1.15] font-semibold tracking-[-0.036em] text-white sm:text-5xl lg:text-[3.5rem]">
+                <dd className="order-1 text-gradient font-tight text-4xl leading-[1.15] font-bold tracking-[-0.04em] sm:text-5xl lg:text-[3.5rem]">
                   <CountUp value={value} suffix={suffix} />
                 </dd>
-                <dt className="order-2 font-tight text-base text-white sm:text-lg">
+                <dt className="order-2 font-tight text-base text-white/80 sm:text-lg">
                   {label}
                 </dt>
               </div>

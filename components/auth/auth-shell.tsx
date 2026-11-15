@@ -20,7 +20,7 @@ export function AuthShell({ children }: { children: React.ReactNode }) {
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse 90% 60% at 50% 100%, rgb(92 83 254 / 0.55), rgb(92 83 254 / 0.18) 45%, transparent 75%)",
+              "radial-gradient(ellipse 90% 60% at 50% 100%, rgb(91 121 214 / 0.5), rgb(56 189 248 / 0.16) 45%, transparent 75%)",
           }}
         />
         <div
@@ -36,11 +36,14 @@ export function AuthShell({ children }: { children: React.ReactNode }) {
         <Logo className="relative" />
 
         <div className="relative flex max-w-[32.5rem] flex-col gap-8">
-          <p className="flex items-center gap-4 font-mono-label text-base text-white">
-            <span aria-hidden className="size-2 bg-brand" />
+          <p className="flex items-center gap-3 font-mono-label text-sm tracking-[0.18em] text-aqua/90 uppercase">
+            <span
+              aria-hidden
+              className="size-1.5 rounded-full bg-gradient-to-r from-brand to-aqua"
+            />
             50,000+ new jobs this month
           </p>
-          <h2 className="font-rethink text-5xl leading-[1.15] font-medium tracking-[-0.023em] text-balance text-white xl:text-[3.5rem]">
+          <h2 className="font-tight text-5xl leading-[1.15] font-medium tracking-[-0.045em] text-balance text-white xl:text-[3.5rem]">
             Your next role is already looking for you
           </h2>
           <p className="text-lg leading-[1.6] text-white/80">
@@ -49,11 +52,8 @@ export function AuthShell({ children }: { children: React.ReactNode }) {
           </p>
           <dl className="mt-4 grid grid-cols-3 gap-4">
             {highlights.map((h) => (
-              <div
-                key={h.label}
-                className="rounded-2xl border border-white/10 bg-gradient-to-b from-[#010102] to-[#313131]/80 p-4"
-              >
-                <dd className="font-jakarta text-3xl font-semibold tracking-[-0.036em] text-white">
+              <div key={h.label} className="rounded-2xl surface p-4">
+                <dd className="text-gradient font-tight text-3xl font-bold tracking-[-0.04em]">
                   {h.value}
                 </dd>
                 <dt className="font-tight text-sm text-white/80">{h.label}</dt>
@@ -70,7 +70,7 @@ export function AuthShell({ children }: { children: React.ReactNode }) {
           className="pointer-events-none absolute inset-x-0 top-0 h-[26.25rem] lg:hidden"
           style={{
             background:
-              "radial-gradient(ellipse 80% 70% at 50% 0%, rgb(92 83 254 / 0.35), transparent 70%)",
+              "radial-gradient(ellipse 80% 70% at 50% 0%, rgb(56 189 248 / 0.28), transparent 70%)",
           }}
         />
         <header className="relative flex items-center justify-between px-4 py-6 sm:px-8">

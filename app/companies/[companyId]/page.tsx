@@ -38,7 +38,7 @@ export default async function CompanyPage({ params }: Props) {
             All companies
           </Link>
 
-          <header className="flex flex-col gap-6 rounded-3xl border border-white/[0.07] bg-surface p-6 sm:p-8">
+          <header className="flex flex-col gap-6 rounded-3xl surface p-6 sm:p-8">
             <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
               <CompanyAvatar
                 name={company.name}
@@ -46,7 +46,7 @@ export default async function CompanyPage({ params }: Props) {
                 className="size-20 text-2xl"
               />
               <div className="flex flex-col gap-3">
-                <h1 className="text-4xl leading-[1.15] font-bold tracking-[-0.036em] text-white">
+                <h1 className="text-4xl leading-[1.15] font-bold tracking-[-0.045em] text-balance text-white">
                   {company.name}
                 </h1>
                 <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/80">
@@ -83,7 +83,7 @@ export default async function CompanyPage({ params }: Props) {
           <section aria-labelledby="open-jobs" className="mt-14">
             <h2
               id="open-jobs"
-              className="mb-6 text-3xl font-semibold tracking-[-0.03em] text-white"
+              className="mb-6 font-tight text-3xl font-semibold tracking-[-0.045em] text-white"
             >
               Open jobs ({company.jobs.length})
             </h2>

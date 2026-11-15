@@ -9,10 +9,11 @@ const badgeVariants = cva(
       variant: {
         default: "bg-primary text-primary-foreground",
         // Pill used for job details (location, schedule, salary).
-        chip: "bg-chip py-1.5 pr-3 pl-2 font-tight text-sm text-white",
+        chip: "border-white/10 bg-white/[0.06] py-1.5 pr-3 pl-2 font-tight text-sm text-white",
         // Pill used for trending searches.
-        tag: "border-white/10 bg-chip-2 px-3 py-1.5 text-sm text-white",
-        pink: "bg-brand-pink px-2 py-0.5 text-sm text-white",
+        tag: "border-white/10 bg-white/[0.05] px-3 py-1.5 text-sm text-white",
+        // Accent pill (e.g. the yearly-discount flag).
+        accent: "border-aqua/35 bg-aqua/15 px-2 py-0.5 text-sm text-aqua",
       },
     },
     defaultVariants: {

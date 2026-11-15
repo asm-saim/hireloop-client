@@ -25,7 +25,11 @@
 
   /* HireLoop brand tokens (from the Figma file) */
   --color-brand: #5b79d6;
-  --color-brand-pink: #dc02ce;
+  /* Secondary chroma. Used for gradients, "live" data and status tints —
+     never for body copy, so the page keeps a single reading colour. */
+  --color-aqua: #38bdf8;
+  --color-mint: #2dd4bf;
+  --color-gold: #fbbf24;
   --color-ink: #010103;
   --color-surface: #151516;
   --color-chip: #1f1f1f;
@@ -41,11 +45,8 @@
   --radius-2xl: calc(var(--radius) + 0.5rem);
 
   --font-sans: var(--nf-manrope), ui-sans-serif, system-ui, sans-serif;
-  --font-manrope: var(--nf-manrope), ui-sans-serif, system-ui, sans-serif;
   --font-geist: var(--nf-geist), ui-sans-serif, system-ui, sans-serif;
   --font-tight: var(--nf-inter-tight), ui-sans-serif, system-ui, sans-serif;
-  --font-jakarta: var(--nf-jakarta), ui-sans-serif, system-ui, sans-serif;
-  --font-rethink: var(--nf-rethink), ui-sans-serif, system-ui, sans-serif;
   --font-mono-label: var(--nf-space-mono), ui-monospace, monospace;
 
   /* Ambient motion: slow enough to read as light, not as a loading state. */
@@ -117,5 +118,57 @@
     html {
       scroll-behavior: auto;
     }
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Glass surfaces.
+
+   One recipe, two weights: `surface` for dense list/table content (a blur per
+   row is a real scroll cost), `surface-glass` for chrome and hero elements
+   that sit above the aurora mesh. `surface-hover` is the shared hover state —
+   pair it via `hover:surface-hover`.
+   ------------------------------------------------------------------------- */
+@utility surface {
+  background-color: rgb(255 255 255 / 0.035);
+  border: 1px solid rgb(255 255 255 / 0.08);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.07),
+    0 1px 2px rgb(0 0 0 / 0.5);
+}
+
+@utility surface-glass {
+  background-color: rgb(255 255 255 / 0.045);
+  border: 1px solid rgb(255 255 255 / 0.1);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.08),
+    0 1px 2px rgb(0 0 0 / 0.5);
+  backdrop-filter: blur(24px);
+}
+
+@utility surface-hover {
+  background-color: rgb(255 255 255 / 0.06);
+  border-color: rgb(255 255 255 / 0.2);
+}
+
+/* The shared accent ramp: brand blue → cyan → teal, clipped to the glyphs. */
+@utility text-gradient {
+  background-image: linear-gradient(
+    90deg,
+    var(--color-brand) 0%,
+    var(--color-aqua) 55%,
+    var(--color-mint) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Fallback for engines without background-clip: text (rare, but keeps the
+   headline readable instead of invisible). */
+@supports not (background-clip: text) {
+  .text-gradient {
+    background-image: none;
+    color: inherit;
   }
 }

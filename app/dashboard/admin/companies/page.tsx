@@ -30,7 +30,7 @@ export default async function ManageCompaniesPage() {
           text="Registrations from recruiters will appear here."
         />
       ) : (
-        <div className="overflow-x-auto rounded-3xl border border-white/[0.07] bg-surface">
+        <div className="overflow-x-auto rounded-3xl surface">
           <table className="w-full min-w-[56rem] text-left text-sm">
             <thead className="border-b border-white/10 text-white/60">
               <tr>

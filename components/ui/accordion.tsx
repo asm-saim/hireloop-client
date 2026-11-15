@@ -20,7 +20,7 @@ function AccordionItem({ className, ...props }: AccordionPrimitive.Item.Props) {
     <AccordionPrimitive.Item
       data-slot="accordion-item"
       className={cn(
-        "rounded-2xl border border-white/[0.07] bg-surface transition-colors data-[open]:border-white/20",
+        "rounded-2xl surface transition-colors data-[open]:border-white/20",
         className
       )}
       {...props}

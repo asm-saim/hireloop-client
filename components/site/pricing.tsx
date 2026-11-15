@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { FadeIn, Stagger, StaggerItem } from "@/components/site/motion"
 import { SectionHeading } from "@/components/site/section-heading"
+import { SpotlightCard } from "@/components/site/spotlight-card"
 import { cn } from "@/lib/utils"
 
 const YEARLY_DISCOUNT = 0.25
@@ -77,7 +78,7 @@ export function Pricing() {
         <div
           role="group"
           aria-label="Billing period"
-          className="flex rounded-full border border-[#f6f6f6]/10 bg-white/15 p-2"
+          className="flex rounded-full surface-glass p-2"
         >
           <button
             type="button"
@@ -85,7 +86,9 @@ export function Pricing() {
             onClick={() => setYearly(false)}
             className={cn(
               "h-[2.6875rem] rounded-full px-4 font-tight text-lg font-medium tracking-[-0.02em] transition-colors outline-none focus-visible:ring-3 focus-visible:ring-ring/50",
-              !yearly ? "bg-white text-ink" : "text-white hover:bg-white/10"
+              !yearly
+                ? "bg-brand text-white shadow-[inset_0_1px_0_rgb(255_255_255/0.18)]"
+                : "text-white hover:bg-white/10"
             )}
           >
             Monthly
@@ -96,11 +99,13 @@ export function Pricing() {
             onClick={() => setYearly(true)}
             className={cn(
               "flex h-[2.6875rem] items-center gap-2 rounded-full px-4 font-tight text-lg font-medium tracking-[-0.02em] transition-colors outline-none focus-visible:ring-3 focus-visible:ring-ring/50",
-              yearly ? "bg-white text-ink" : "text-white hover:bg-white/10"
+              yearly
+                ? "bg-brand text-white shadow-[inset_0_1px_0_rgb(255_255_255/0.18)]"
+                : "text-white hover:bg-white/10"
             )}
           >
             Yearly
-            <Badge variant="pink" className="font-geist text-base">
+            <Badge variant="accent" className="font-geist text-base">
               25%
             </Badge>
           </button>
@@ -111,26 +116,26 @@ export function Pricing() {
             const Icon = plan.icon
             return (
               <StaggerItem key={plan.name} hover className="h-full">
-                <article
+                <SpotlightCard
+                  as="article"
                   className={cn(
-                    "flex h-full flex-col justify-between gap-12 rounded-3xl border p-6",
-                    plan.featured
-                      ? "border-white/20 bg-surface shadow-[inset_0_0_2rem_rgb(120_120_120/0.25)]"
-                      : "border-[#f6efe1]/20 bg-ink"
+                    "flex h-full flex-col justify-between gap-12 rounded-3xl surface p-6 transition-colors hover:surface-hover",
+                    plan.featured &&
+                      "outline-1 -outline-offset-1 outline-aqua/35"
                   )}
                 >
                   <div className="flex flex-col gap-8">
                     <header className="flex items-center justify-between gap-4">
                       <div className="flex items-center gap-4">
-                        <span className="grid size-10 place-items-center rounded-lg border border-[#595959]/40">
-                          <Icon aria-hidden className="size-6 text-white" />
+                        <span className="grid size-10 place-items-center rounded-xl border border-aqua/30 bg-aqua/10">
+                          <Icon aria-hidden className="size-6 text-aqua" />
                         </span>
-                        <h3 className="font-jakarta text-2xl leading-[1.4] tracking-[-0.02em] text-white">
+                        <h3 className="font-tight text-2xl leading-[1.4] font-semibold tracking-[-0.03em] text-white">
                           {plan.name}
                         </h3>
                       </div>
                       <p className="flex items-end gap-1 text-white">
-                        <span className="font-jakarta text-4xl leading-[1.2] font-semibold tracking-[-0.05em] sm:text-[2.5rem]">
+                        <span className="font-tight text-4xl leading-[1.2] font-bold tracking-[-0.05em] sm:text-[2.5rem]">
                           ${price(plan.monthly)}
                         </span>
                         <span className="pb-1.5 font-tight text-sm text-white/80">
@@ -146,11 +151,8 @@ export function Pricing() {
                       <ul className="flex flex-col gap-4">
                         {plan.features.map((f) => (
                           <li key={f} className="flex items-center gap-3">
-                            <span className="grid size-6 shrink-0 place-items-center rounded-md border border-[#f6efe1]/10 bg-[#595959]/30">
-                              <Check
-                                aria-hidden
-                                className="size-4 text-white"
-                              />
+                            <span className="grid size-6 shrink-0 place-items-center rounded-md border border-mint/25 bg-mint/10">
+                              <Check aria-hidden className="size-4 text-mint" />
                             </span>
                             <span className="text-base leading-[1.7] text-white">
                               {f}
@@ -167,9 +169,12 @@ export function Pricing() {
                     className="h-[3.4375rem] w-full justify-between px-6 text-base tracking-[-0.02em]"
                   >
                     Choose This Plan
-                    <ArrowRight aria-hidden className="size-6" />
+                    <ArrowRight
+                      aria-hidden
+                      className="size-6 transition-transform duration-300 group-hover/button:translate-x-0.5"
+                    />
                   </Button>
-                </article>
+                </SpotlightCard>
               </StaggerItem>
             )
           })}

@@ -72,7 +72,7 @@ export default async function AdminOverview() {
       <div className="grid gap-6 lg:grid-cols-2">
         <section
           aria-labelledby="cat-heading"
-          className="flex flex-col gap-4 rounded-3xl border border-white/[0.07] bg-surface p-6"
+          className="flex flex-col gap-4 rounded-3xl surface p-6"
         >
           <h2 id="cat-heading" className="text-xl font-semibold text-white">
             Job posts by category
@@ -85,7 +85,7 @@ export default async function AdminOverview() {
         </section>
         <section
           aria-labelledby="signup-heading"
-          className="flex flex-col gap-4 rounded-3xl border border-white/[0.07] bg-surface p-6"
+          className="flex flex-col gap-4 rounded-3xl surface p-6"
         >
           <div>
             <h2
@@ -102,7 +102,7 @@ export default async function AdminOverview() {
 
       <section
         aria-labelledby="pay-heading"
-        className="flex flex-col gap-4 rounded-3xl border border-white/[0.07] bg-surface p-6"
+        className="flex flex-col gap-4 rounded-3xl surface p-6"
       >
         <div className="flex items-center justify-between gap-4">
           <h2 id="pay-heading" className="text-xl font-semibold text-white">
@@ -144,7 +144,7 @@ export default async function AdminOverview() {
                     </p>
                   </div>
                 </div>
-                <p className="font-jakarta text-lg font-semibold text-white">
+                <p className="font-tight text-lg font-semibold text-white">
                   {money(p.amount)}
                 </p>
               </li>

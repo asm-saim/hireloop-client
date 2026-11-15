@@ -89,7 +89,7 @@ export default async function SeekerBillingPage({
 
       <section
         aria-labelledby="plan-heading"
-        className="flex flex-col gap-6 rounded-3xl border border-white/[0.07] bg-surface p-6"
+        className="flex flex-col gap-6 rounded-3xl surface p-6"
       >
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div>
@@ -152,7 +152,7 @@ export default async function SeekerBillingPage({
             text="When you upgrade, your payments and receipts will be listed here."
           />
         ) : (
-          <div className="overflow-x-auto rounded-3xl border border-white/[0.07] bg-surface">
+          <div className="overflow-x-auto rounded-3xl surface">
             <table className="w-full min-w-[36rem] text-left text-sm">
               <thead className="border-b border-white/10 text-white/60">
                 <tr>

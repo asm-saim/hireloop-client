@@ -1,7 +1,9 @@
 import Link from "next/link"
-import { BriefcaseBusiness, CircleDollarSign, MapPin } from "lucide-react"
+import { CircleDollarSign, MapPin } from "lucide-react"
 
+import { JobTypeBadge } from "@/components/jobs/job-type-badge"
 import { CompanyAvatar } from "@/components/jobs/company-avatar"
+import { SpotlightCard } from "@/components/site/spotlight-card"
 import { Badge } from "@/components/ui/badge"
 import { formatSalary, timeAgo } from "@/lib/format"
 import type { JobWithCompany } from "@/lib/data/types"
@@ -17,11 +19,14 @@ export function JobCard({
   actions?: React.ReactNode
 }) {
   return (
-    <article className="group relative flex flex-col gap-5 rounded-3xl border border-white/[0.07] bg-surface p-6 transition-colors focus-within:border-brand/60 hover:border-white/20">
+    <SpotlightCard
+      as="article"
+      className="flex flex-col gap-5 rounded-3xl surface p-6 transition-colors focus-within:border-brand/60 hover:surface-hover"
+    >
       <div className="flex items-start gap-4">
         <CompanyAvatar name={job.company.name} logoUrl={job.company.logoUrl} />
         <div className="min-w-0">
-          <h3 className="font-tight text-xl leading-snug font-medium text-white">
+          <h3 className="font-tight text-xl leading-snug font-semibold text-white">
             <Link
               href={href ?? `/jobs/${job.id}`}
               className="outline-none after:absolute after:inset-0 after:rounded-3xl"
@@ -43,10 +48,7 @@ export function JobCard({
           </Badge>
         </li>
         <li>
-          <Badge variant="chip">
-            <BriefcaseBusiness aria-hidden />
-            {job.type}
-          </Badge>
+          <JobTypeBadge type={job.type} />
         </li>
         <li>
           <Badge variant="chip">
@@ -63,6 +65,6 @@ export function JobCard({
           {actions}
         </div>
       )}
-    </article>
+    </SpotlightCard>
   )
 }

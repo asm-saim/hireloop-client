@@ -96,7 +96,7 @@ export function SignupsChart({
             <Line
               type="monotone"
               dataKey="count"
-              stroke="#36c4e0"
+              stroke="#38bdf8"
               strokeWidth={2.5}
               dot={false}
             />

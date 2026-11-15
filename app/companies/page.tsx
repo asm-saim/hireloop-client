@@ -4,6 +4,7 @@ import { Building2, MapPin, Users } from "lucide-react"
 
 import { CompanyAvatar } from "@/components/jobs/company-avatar"
 import { PageHeading, PublicShell } from "@/components/site/public-shell"
+import { SpotlightCard } from "@/components/site/spotlight-card"
 import { getCompanies } from "@/server/repositories/jobs"
 import { INDUSTRIES, type Industry } from "@/lib/data/types"
 import { cn } from "@/lib/utils"
@@ -57,7 +58,7 @@ export default async function CompaniesPage({
                 className={cn(
                   "rounded-full border px-4 py-2 text-sm font-medium transition-colors outline-none focus-visible:ring-3 focus-visible:ring-ring/50",
                   active
-                    ? "border-white bg-white text-ink"
+                    ? "border-aqua/40 bg-aqua/15 text-aqua"
                     : "border-white/10 bg-chip-2 text-white hover:border-white/30"
                 )}
               >
@@ -70,11 +71,14 @@ export default async function CompaniesPage({
         <ul className="mx-auto mt-10 grid max-w-[82.5rem] gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
           {companies.map((c) => (
             <li key={c.id}>
-              <article className="relative flex h-full flex-col gap-5 rounded-3xl border border-white/[0.07] bg-surface p-6 transition-colors focus-within:border-brand/60 hover:border-white/20">
+              <SpotlightCard
+                as="article"
+                className="flex h-full flex-col gap-5 rounded-3xl surface p-6 transition-colors focus-within:border-brand/60 hover:surface-hover"
+              >
                 <div className="flex items-center gap-4">
                   <CompanyAvatar name={c.name} logoUrl={c.logoUrl} />
                   <div className="min-w-0">
-                    <h2 className="font-tight text-xl font-medium text-white">
+                    <h2 className="font-tight text-xl font-semibold text-white">
                       <Link
                         href={`/companies/${c.id}`}
                         className="outline-none after:absolute after:inset-0 after:rounded-3xl"
@@ -95,11 +99,11 @@ export default async function CompaniesPage({
                     {c.employees} employees
                   </li>
                 </ul>
-                <p className="mt-auto flex items-center gap-2 text-sm font-medium text-brand">
+                <p className="mt-auto flex items-center gap-2 text-sm font-medium text-aqua">
                   <Building2 aria-hidden className="size-4" />
                   {c.openJobs} open {c.openJobs === 1 ? "job" : "jobs"}
                 </p>
-              </article>
+              </SpotlightCard>
             </li>
           ))}
         </ul>

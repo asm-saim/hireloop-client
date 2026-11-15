@@ -53,7 +53,7 @@ export default async function MyCompanyPage() {
         </Button>
       </PageHeader>
 
-      <section className="flex flex-col gap-6 rounded-3xl border border-white/[0.07] bg-surface p-6 sm:p-8">
+      <section className="flex flex-col gap-6 rounded-3xl surface p-6 sm:p-8">
         <div className="flex flex-wrap items-center gap-5">
           <CompanyAvatar
             name={company.name}

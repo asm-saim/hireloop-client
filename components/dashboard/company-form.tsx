@@ -93,7 +93,7 @@ export function CompanyForm({
     <form
       onSubmit={submit}
       noValidate
-      className="flex flex-col gap-6 rounded-3xl border border-white/[0.07] bg-surface p-6"
+      className="flex flex-col gap-6 rounded-3xl surface p-6"
     >
       <FormError message={error} />
 

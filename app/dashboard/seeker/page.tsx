@@ -133,7 +133,7 @@ export default async function SeekerOverview() {
       <div className="grid gap-6 lg:grid-cols-[minmax(0,20rem)_minmax(0,1fr)]">
         <section
           aria-labelledby="profile-heading"
-          className="flex flex-col gap-5 rounded-3xl border border-white/[0.07] bg-surface p-6"
+          className="flex flex-col gap-5 rounded-3xl surface p-6"
         >
           <h2 id="profile-heading" className="sr-only">
             Profile
@@ -180,7 +180,7 @@ export default async function SeekerOverview() {
 
         <section
           aria-labelledby="chart-heading"
-          className="flex flex-col gap-5 rounded-3xl border border-white/[0.07] bg-surface p-6"
+          className="flex flex-col gap-5 rounded-3xl surface p-6"
         >
           <h2 id="chart-heading" className="text-xl font-semibold text-white">
             Application status
@@ -208,7 +208,7 @@ export default async function SeekerOverview() {
 
       <section
         aria-labelledby="activity-heading"
-        className="flex flex-col gap-4 rounded-3xl border border-white/[0.07] bg-surface p-6"
+        className="flex flex-col gap-4 rounded-3xl surface p-6"
       >
         <h2 id="activity-heading" className="text-xl font-semibold text-white">
           Recent activity

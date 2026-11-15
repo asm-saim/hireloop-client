@@ -61,7 +61,7 @@ export default async function AdminPaymentsPage() {
           text="Subscription payments will be listed here."
         />
       ) : (
-        <div className="overflow-x-auto rounded-3xl border border-white/[0.07] bg-surface">
+        <div className="overflow-x-auto rounded-3xl surface">
           <table className="w-full min-w-[54rem] text-left text-sm">
             <thead className="border-b border-white/10 text-white/60">
               <tr>

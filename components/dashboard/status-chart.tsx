@@ -58,7 +58,7 @@ export function StatusChart({
         </ResponsiveContainer>
         <div className="pointer-events-none absolute inset-0 grid place-items-center text-center">
           <div>
-            <p className="font-jakarta text-4xl font-semibold tracking-[-0.04em] text-white">
+            <p className="font-tight text-4xl font-semibold tracking-[-0.04em] text-white">
               {total}
             </p>
             <p className="text-xs text-white/60">applications</p>

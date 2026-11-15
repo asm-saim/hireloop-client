@@ -22,8 +22,7 @@ import { updateSeekerProfile } from "@/server/actions/seeker"
 
 const isHttpUrl = (v: string) => v === "" || /^https?:\/\/\S+$/i.test(v)
 
-const card =
-  "flex flex-col gap-5 rounded-3xl border border-white/[0.07] bg-surface p-6"
+const card = "flex flex-col gap-5 surface rounded-3xl p-6"
 
 export function ProfileForm({
   initial,

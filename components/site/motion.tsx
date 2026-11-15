@@ -93,7 +93,14 @@ export function StaggerItem({
     <motion.div
       className={cn(className)}
       variants={item}
-      whileHover={hover ? { y: -4 } : undefined}
+      whileHover={
+        hover
+          ? {
+              y: -4,
+              transition: { type: "spring", stiffness: 320, damping: 26 },
+            }
+          : undefined
+      }
       {...props}
     >
       {children}

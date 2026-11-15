@@ -27,7 +27,7 @@ export default async function DashboardOverview() {
           <li key={href}>
             <Link
               href={href}
-              className="group flex items-center justify-between gap-4 rounded-2xl border border-white/[0.07] bg-surface p-5 text-white transition-colors outline-none hover:border-white/20 focus-visible:border-brand/60"
+              className="group flex items-center justify-between gap-4 rounded-2xl surface p-5 text-white transition-colors outline-none hover:border-white/20 focus-visible:border-brand/60"
             >
               <span className="flex items-center gap-3 font-medium">
                 <Icon aria-hidden className="size-5 text-brand" />

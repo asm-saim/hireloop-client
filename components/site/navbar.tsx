@@ -22,7 +22,7 @@ export function Navbar() {
   return (
     <header className="absolute inset-x-0 top-0 z-50 px-4 pt-4 sm:px-8 lg:pt-6 xl:px-[3.75rem]">
       <div className="relative mx-auto max-w-[82.5rem]">
-        <div className="flex h-[4.625rem] items-center justify-between rounded-2xl border border-white/[0.07] bg-nav pr-2 pl-5 sm:pl-6">
+        <div className="flex h-[4.625rem] items-center justify-between rounded-2xl surface-glass pr-2 pl-5 sm:pl-6">
           <Logo />
 
           {/* Desktop */}
@@ -96,7 +96,7 @@ export function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.2 }}
-              className="absolute inset-x-0 top-[5.125rem] rounded-2xl border border-white/[0.07] bg-nav p-4 lg:hidden"
+              className="absolute inset-x-0 top-[5.125rem] rounded-2xl surface-glass p-4 lg:hidden"
             >
               <ul className="flex flex-col">
                 {links.map((l) => (

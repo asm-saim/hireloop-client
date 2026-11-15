@@ -64,7 +64,7 @@ export default async function RecruiterOverview() {
       <div className="grid gap-6 lg:grid-cols-[minmax(0,20rem)_minmax(0,1fr)]">
         <section
           aria-labelledby="company-heading"
-          className="flex flex-col gap-5 rounded-3xl border border-white/[0.07] bg-surface p-6"
+          className="flex flex-col gap-5 rounded-3xl surface p-6"
         >
           <h2 id="company-heading" className="sr-only">
             Company
@@ -121,7 +121,7 @@ export default async function RecruiterOverview() {
 
         <section
           aria-labelledby="chart-heading"
-          className="flex flex-col gap-5 rounded-3xl border border-white/[0.07] bg-surface p-6"
+          className="flex flex-col gap-5 rounded-3xl surface p-6"
         >
           <div>
             <h2 id="chart-heading" className="text-xl font-semibold text-white">
@@ -141,7 +141,7 @@ export default async function RecruiterOverview() {
 
       <section
         aria-labelledby="recent-heading"
-        className="flex flex-col gap-4 rounded-3xl border border-white/[0.07] bg-surface p-6"
+        className="flex flex-col gap-4 rounded-3xl surface p-6"
       >
         <h2 id="recent-heading" className="text-xl font-semibold text-white">
           Recent applications

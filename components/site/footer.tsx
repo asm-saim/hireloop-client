@@ -80,7 +80,7 @@ export function Footer() {
 
   return (
     <footer className="mx-auto w-full max-w-[90rem] px-4 sm:px-8 xl:px-[3.75rem]">
-      <div className="flex flex-col gap-12 rounded-2xl border border-white/[0.07] bg-ink px-6 py-10 sm:px-10 lg:gap-[4.5rem] lg:px-0 lg:py-10">
+      <div className="flex flex-col gap-12 rounded-3xl surface px-6 py-10 sm:px-10 lg:gap-[4.5rem] lg:px-0 lg:py-10">
         <div className="flex flex-col justify-between gap-12 lg:flex-row lg:gap-24 lg:px-10 xl:gap-[25rem]">
           <div className="flex max-w-[18rem] flex-col gap-6">
             <Logo />

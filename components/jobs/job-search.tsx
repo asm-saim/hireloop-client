@@ -76,7 +76,7 @@ export function JobSearch({
     <form action={action} method="get" className="flex flex-col gap-8">
       <div
         role="search"
-        className="flex h-16 w-full max-w-[49rem] items-center gap-3 rounded-2xl border border-white/20 bg-[#101010] p-2 pl-5"
+        className="flex h-16 w-full max-w-[49rem] items-center gap-3 rounded-2xl surface-glass p-2 pl-5 transition-shadow duration-300 focus-within:ring-2 focus-within:ring-aqua/35"
       >
         <Search aria-hidden className="size-6 shrink-0 text-white" />
         <label className="h-full flex-1">
@@ -99,7 +99,7 @@ export function JobSearch({
           className="lg:sticky lg:top-6 lg:self-start"
         >
           <FiltersDisclosure activeCount={activeCount}>
-            <div className="flex flex-col gap-6 rounded-3xl border border-white/[0.07] bg-surface p-5">
+            <div className="flex flex-col gap-6 rounded-3xl surface p-5">
               <fieldset className="flex flex-col gap-3">
                 <legend className="mb-1 text-sm font-medium text-white">
                   Job type

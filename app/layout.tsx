@@ -17,18 +17,6 @@ const interTight = localFont({
   weight: "100 900",
   display: "swap",
 })
-const jakarta = localFont({
-  src: "./fonts/PlusJakartaSans.woff2",
-  variable: "--nf-jakarta",
-  weight: "200 800",
-  display: "swap",
-})
-const rethink = localFont({
-  src: "./fonts/RethinkSans.woff2",
-  variable: "--nf-rethink",
-  weight: "400 800",
-  display: "swap",
-})
 const geist = localFont({
   src: "./fonts/Geist.woff2",
   variable: "--nf-geist",
@@ -59,8 +47,6 @@ export default function RootLayout({
   const fontVars = [
     manrope.variable,
     interTight.variable,
-    jakarta.variable,
-    rethink.variable,
     geist.variable,
     spaceMono.variable,
   ].join(" ")

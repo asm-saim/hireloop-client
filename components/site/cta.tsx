@@ -12,7 +12,7 @@ function Dome() {
         className="pointer-events-none absolute top-0 left-1/2 -z-10 aspect-[1498/1037] w-[200vw] max-w-[93.625rem] -translate-x-1/2 rounded-[50%] sm:w-[160vw]"
         style={{
           background:
-            "radial-gradient(ellipse 43% 43% at 50% 0%, #5c53fe 0%, rgb(92 83 254 / 0.6) 29%, rgb(92 83 254 / 0.5) 52%, rgb(92 83 254 / 0) 100%)",
+            "radial-gradient(ellipse 43% 43% at 50% 0%, #5b79d6 0%, rgb(79 143 220 / 0.6) 29%, rgb(56 189 248 / 0.45) 52%, rgb(56 189 248 / 0) 100%)",
         }}
       >
         <div
@@ -45,7 +45,7 @@ export function Cta() {
         <div className="flex flex-col items-center gap-4">
           <h2
             id="cta-heading"
-            className="font-rethink text-4xl leading-[1.2] font-medium tracking-[-0.023em] text-balance text-white sm:text-5xl lg:text-[4rem]"
+            className="font-tight text-4xl leading-[1.2] font-medium tracking-[-0.035em] text-balance text-white sm:text-5xl lg:text-[4rem]"
           >
             Your next role is <br className="hidden sm:block" />
             already looking for you

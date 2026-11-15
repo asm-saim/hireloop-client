@@ -40,7 +40,7 @@ function Section({
   children: React.ReactNode
 }) {
   return (
-    <fieldset className="flex flex-col gap-5 rounded-3xl border border-white/[0.07] bg-surface p-6">
+    <fieldset className="flex flex-col gap-5 rounded-3xl surface p-6">
       <legend className="float-left mb-1 w-full text-xl font-semibold text-white">
         {title}
       </legend>

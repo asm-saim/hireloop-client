@@ -17,12 +17,18 @@ export function SectionHeading({
         className
       )}
     >
-      <p className="flex items-center gap-4 font-mono-label text-base text-white sm:text-xl">
-        <span aria-hidden className="size-2 bg-brand" />
+      <p className="flex items-center gap-3 font-mono-label text-sm tracking-[0.18em] text-aqua/90 uppercase sm:gap-4 sm:text-base">
+        <span
+          aria-hidden
+          className="size-1.5 rounded-full bg-gradient-to-r from-brand to-aqua"
+        />
         {eyebrow}
-        <span aria-hidden className="size-2 bg-brand" />
+        <span
+          aria-hidden
+          className="size-1.5 rounded-full bg-gradient-to-r from-aqua to-mint"
+        />
       </p>
-      <h2 className="text-3xl leading-[1.15] font-semibold tracking-[-0.04em] text-balance text-white sm:text-4xl lg:text-5xl">
+      <h2 className="font-tight text-3xl leading-[1.15] font-semibold tracking-[-0.045em] text-balance text-white sm:text-4xl lg:text-5xl">
         {title}
       </h2>
     </div>

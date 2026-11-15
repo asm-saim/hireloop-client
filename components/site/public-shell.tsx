@@ -9,7 +9,7 @@ export function PublicShell({ children }: { children: React.ReactNode }) {
       <main className="relative pt-[7.5rem] sm:pt-[8.75rem]">
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[26.25rem] bg-[radial-gradient(ellipse_60%_70%_at_50%_0%,rgb(92_83_254/0.22),transparent)]"
+          className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[26.25rem] bg-[radial-gradient(ellipse_60%_70%_at_50%_0%,rgb(91_121_214/0.22),rgb(56_189_248/0.08)_45%,transparent)]"
         />
         {children}
       </main>
@@ -31,12 +31,18 @@ export function PageHeading({
 }) {
   return (
     <div className="mx-auto flex max-w-[40rem] flex-col items-center gap-4 text-center">
-      <p className="flex items-center gap-4 font-mono-label text-base text-white sm:text-xl">
-        <span aria-hidden className="size-2 bg-brand" />
+      <p className="flex items-center gap-3 font-mono-label text-sm tracking-[0.18em] text-aqua/90 uppercase sm:gap-4 sm:text-base">
+        <span
+          aria-hidden
+          className="size-1.5 rounded-full bg-gradient-to-r from-brand to-aqua"
+        />
         {eyebrow}
-        <span aria-hidden className="size-2 bg-brand" />
+        <span
+          aria-hidden
+          className="size-1.5 rounded-full bg-gradient-to-r from-aqua to-mint"
+        />
       </p>
-      <h1 className="text-4xl leading-[1.15] font-bold tracking-[-0.036em] text-balance text-white sm:text-5xl">
+      <h1 className="text-4xl leading-[1.15] font-bold tracking-[-0.045em] text-balance text-white sm:text-5xl">
         {title}
       </h1>
       {text && (

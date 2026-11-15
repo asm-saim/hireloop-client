@@ -26,7 +26,7 @@ export default async function RecruiterSettingsPage() {
         }}
       />
       <PasswordForm />
-      <section className="flex flex-wrap items-center justify-between gap-4 rounded-3xl border border-white/[0.07] bg-surface p-6">
+      <section className="flex flex-wrap items-center justify-between gap-4 rounded-3xl surface p-6">
         <div>
           <h2 className="text-xl font-semibold text-white">Linked company</h2>
           <p className="text-white/70">

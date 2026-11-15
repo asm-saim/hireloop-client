@@ -41,8 +41,8 @@ export function Hero() {
           </div>
 
           <div className="flex flex-col items-center gap-4">
-            <h1 className="text-4xl leading-[1.15] font-bold tracking-[-0.036em] text-balance text-white sm:text-5xl lg:text-[3.5rem]">
-              Find Your Dream Job Today
+            <h1 className="text-4xl leading-[1.15] font-bold tracking-[-0.045em] text-balance text-white sm:text-5xl lg:text-[3.5rem]">
+              Find Your <span className="text-gradient">Dream Job</span> Today
             </h1>
             <p className="max-w-[49rem] text-base leading-[1.6] text-pretty text-white sm:text-xl">
               HireLoop connects top talent with world-class companies. Browse
@@ -58,7 +58,7 @@ export function Hero() {
             action="/jobs"
             method="get"
             role="search"
-            className="flex w-full flex-col gap-2 rounded-2xl border border-white/20 bg-[#101010] p-2 sm:h-16 sm:flex-row sm:items-center sm:gap-6 sm:pl-6"
+            className="flex w-full flex-col gap-2 rounded-2xl surface-glass p-2 transition-shadow duration-300 focus-within:ring-2 focus-within:ring-aqua/35 sm:h-16 sm:flex-row sm:items-center sm:gap-6 sm:pl-6"
           >
             <label className="flex h-12 flex-1 items-center gap-2 px-3 text-left sm:h-full sm:px-0">
               <Search aria-hidden className="size-6 shrink-0 text-white" />

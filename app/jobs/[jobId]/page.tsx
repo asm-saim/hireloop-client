@@ -11,6 +11,7 @@ import {
 
 import { CompanyAvatar } from "@/components/jobs/company-avatar"
 import { JobCard } from "@/components/jobs/job-card"
+import { JobTypeBadge } from "@/components/jobs/job-type-badge"
 import { ApplyDialog } from "@/components/jobs/apply-dialog"
 import { SaveButton } from "@/components/jobs/save-button"
 import { PublicShell } from "@/components/site/public-shell"
@@ -83,12 +84,10 @@ export default async function JobDetailsPage({ params }: Props) {
             <article className="flex flex-col gap-10">
               <header className="flex flex-col gap-5">
                 <div className="flex flex-wrap items-center gap-2">
-                  <Badge variant="default" className="px-3 py-1 text-sm">
-                    {job.type}
-                  </Badge>
+                  <JobTypeBadge type={job.type} />
                   <Badge variant="tag">{job.category}</Badge>
                 </div>
-                <h1 className="text-4xl leading-[1.15] font-bold tracking-[-0.036em] text-balance text-white sm:text-5xl">
+                <h1 className="text-4xl leading-[1.15] font-bold tracking-[-0.045em] text-balance text-white sm:text-5xl">
                   {job.title}
                 </h1>
                 <ul className="flex flex-wrap gap-x-6 gap-y-3 text-white/80">
@@ -122,9 +121,9 @@ export default async function JobDetailsPage({ params }: Props) {
             </article>
 
             <aside className="flex flex-col gap-4 lg:sticky lg:top-6 lg:self-start">
-              <div className="flex flex-col gap-5 rounded-3xl border border-white/[0.07] bg-surface p-6">
+              <div className="flex flex-col gap-5 rounded-3xl surface p-6">
                 <div>
-                  <p className="font-jakarta text-2xl font-semibold tracking-[-0.03em] text-white">
+                  <p className="font-tight text-2xl font-semibold tracking-[-0.03em] text-white">
                     {formatSalary(job.salaryMin, job.salaryMax, job.currency)}
                   </p>
                   <p className="mt-1 flex items-center gap-2 text-sm text-white/70">
@@ -156,7 +155,7 @@ export default async function JobDetailsPage({ params }: Props) {
                 )}
               </div>
 
-              <div className="flex flex-col gap-4 rounded-3xl border border-white/[0.07] bg-surface p-6">
+              <div className="flex flex-col gap-4 rounded-3xl surface p-6">
                 <div className="flex items-center gap-4">
                   <CompanyAvatar
                     name={job.company.name}
