@@ -4,6 +4,11 @@ A full-featured job hunting portal that connects job seekers with employers. See
 
 Built with Next.js, shadcn/ui, Better Auth and MongoDB. The UI follows the HireLoop Figma design (dark theme, purple brand color).
 
+**Live site:** https://hireloop-v1.vercel.app
+
+### Try it
+You can create your own account on the live site as either a **Job Seeker** or a **Recruiter** and explore that dashboard. Payments run in Stripe test mode (card `4242 4242 4242 4242`). The Admin dashboard isn't public.
+
 ---
 
 ## Features
